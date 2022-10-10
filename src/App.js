@@ -1,5 +1,11 @@
 import React , {useState} from 'react'
 import axios from "axios";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Blank from './page/Blank';
+import Dashboard from './page/Dashboard';
+import AppLayout from './components/layout/AppLayout';
+import AppHeader from './components/layout/AppHeader';
+import './App.scss';
 const moment = require('moment');
 export default function App() {
 
@@ -22,10 +28,36 @@ export default function App() {
 
   return (
     <>
-    <div>-----------test-----------</div>
+    <BrowserRouter>
+            <Routes>
+                <Route path='/' element={<AppHeader />}>
+                    <Route path='/' element={<Blank />}/>
+                </Route>
+                {/* <Route path='/dashboard' element={<Dashboard />}/> */}
+                {/* <Route path='/dashboard' element={<AppHeader />}> */}
+                <Route path='/dashboard' element={<AppLayout />}>
+                    <Route path='/dashboard' element={<Dashboard />}/>
+                </Route>
+                {/* </Route> */}
+                <Route path='/traindetail' element={<AppLayout />}>
+                    <Route path='/traindetail' element={<traindetail />} />
+                </Route>
+                <Route path='/wheyprotein' element={<AppLayout />}>
+                    <Route path='/wheyprotein' element={<wheyprotein />} />
+                </Route>
+                <Route path='/member' element={<AppLayout />}>
+                    <Route path='/member' element={<member />} />
+                </Route>
+                <Route path='/history' element={<AppLayout />}>
+                    <Route path='/history' element={<history />} />
+                </Route>
+            </Routes>
+            
+        </BrowserRouter>
+    {/* <div>-----------test-----------</div>
     <button
         type="button"
-        onClick={()=>{testAPI_getall();}}>GET</button>
+        onClick={()=>{testAPI_getall();}}>GET</button> */}
     </>
   );
 }
