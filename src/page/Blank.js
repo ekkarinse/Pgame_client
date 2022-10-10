@@ -5,6 +5,11 @@ import "../vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
 
 const Blank = () => {
     return <div className="login">
+    <head>
+    <style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+    </style>
+    </head>
     {/* <h1 id="name">Deep Dark Gyms</h1> */}
     <div className='div-headerpage'>
         <img id= "image" src={loginpic} alt="loginpic" width="300" height="400"></img>
@@ -44,7 +49,7 @@ const Blank = () => {
                     </input>ยอมรับข้อเสนอ
                     <br></br><br></br>
                     <div className='div-button'>
-                        <button class="btn btn-primary">Register</button>
+                        <button class="btn btn-primary" size="lg">Register</button>
                     </div>
                 </label>
                 </form>

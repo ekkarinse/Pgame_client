@@ -17,9 +17,10 @@ h2 {
     text-align: center;
     font-weight: bold;
 }
-/* label{
-    text-align: center;
-} */
+label{
+    margin-top: 1em;
+    /* text-align: center; */
+}
 form{
     text-align: center;
 }
