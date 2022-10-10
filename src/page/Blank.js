@@ -12,7 +12,7 @@ const Blank = () => {
     </head>
     {/* <h1 id="name">Deep Dark Gyms</h1> */}
     <div className='div-headerpage'>
-        <img id= "image" src={loginpic} alt="loginpic" width="300" height="400"></img>
+        <img id= "image" src={loginpic} alt="loginpic" width="500" height="600"></img>
             <div className='pagelogin'>
                 <form>
                 <label>

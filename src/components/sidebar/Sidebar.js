@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 // import Dashboard from '../../page//Dashboard';
+import loginpic from "../../picture/lizardboss.jpg";
 import './sidebar.scss';
+import "../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
 
 const sidebarNavItems = [
     {
@@ -27,6 +29,12 @@ const sidebarNavItems = [
         icon: <i className='bx bx-user'></i>,
         to: '/history',
         section: 'history'
+    },
+    {
+        display: 'ออกจากระบบ',
+        icon: <i className='bx bx-user'></i>,
+        to: '/',
+        section: 'logout'
     },
 ]
 
@@ -54,6 +62,7 @@ const Sidebar = () => {
 
     return <div className='sidebar'>
         <div className="sidebar__logo"><Link to="/dashboard">Deep Dark Gyms</Link></div>
+        <br></br>
         <div ref={sidebarRef} className="sidebar__menu">
             <div
                 ref={indicatorRef}
@@ -63,6 +72,12 @@ const Sidebar = () => {
                     // transform: `translateX(-50%) translateY(${activeIndex * stepHeight}px)`
                 }}
             ></div>
+            <div className='pic' style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
+                <img className='imageset' id= "image" src={loginpic} alt="loginpic" width="80" height="80"></img>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <p>นายพสธร ภูมิคำ</p>
+            </div>
+            <br></br><br></br>
             {
                 sidebarNavItems.map((item, index) => (
                     <Link to={item.to} key={index}>
