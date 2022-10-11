@@ -1,12 +1,14 @@
+html{
+    font-size: calc(60% + 0.8vmin);
+}
 .main{
     background-color: #ffff;
-    width: 70rem;
-    min-height: 40rem;
-    max-width: 100%;
+    min-height: 45rem;
+    max-width: 90%;
+    margin: 0 auto;
+    margin-top: 2%;
     border-radius: 10px;
-    
     box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
-
 }
 .header{
     padding-top: 20px;
@@ -14,16 +16,22 @@
     text-align: center;
 }
 .card-img-top{
-    width: 20rem;
+
+   width: 20rem;
     height:20rem;
     border-radius: 15px;
-    margin-top: 5rem;
-    margin-left: 2.5rem;
-  
- max-width: 100%;
+    margin-top: 7rem;
+    max-width: 100%;
+    margin-left: 2rem;
+    
+ 
 }
 .card-group{
-    overflow: hidden;  
+    overflow: hidden;
+     margin-left: 9%;
+   align-items: center;
+   justify-content: center;
+
 }
  .card-img-top:hover{
     box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
