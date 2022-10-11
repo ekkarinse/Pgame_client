@@ -20,7 +20,7 @@ const Header = ({history,isLogged}) =>{
                         &nbsp;
                         <input type="text" placeholder='รหัสผ่าน' className='input' size="15"/>
                         &nbsp;&nbsp;
-                        <Link to="/dashboard"><button className='button-header' class="btn btn-primary">Login</button></Link>
+                        <Link to="/dashboard"><button className='button-header' class="btn btn-warning">Login</button></Link>
                     </label>
                     </form>
                     {/* <button className='button-header' size="sm"><Link to="/dashboard" class="btn btn-primary" size="sm">Login</Link></button> */}

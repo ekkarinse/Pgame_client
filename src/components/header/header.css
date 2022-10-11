@@ -2,7 +2,7 @@ nav{
     height: 50px;
     font-size: large;
     border: 0px solid;
-    color: #000;
+    color: #FFC107;
 }
 /* div.header{
     margin-left: 30px;
@@ -39,3 +39,8 @@ label.headerlogin{
     align-items: center;
     /* padding-right: 10px; */
 }
+/* .btn-primary {
+    color: #ffe700;
+    background-color: #551f81;
+    border-color: #007bff;
+  } */
