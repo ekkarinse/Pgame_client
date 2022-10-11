@@ -1,57 +1,73 @@
 html{
     font-size: calc(60% + 0.8vmin);
+   
+    
+}
+.container-lg-12{
+    background-image: url("https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/e/7/d/e7df9905ae_50175413_fitness-sport.jpg");
+    margin-left: -3.5rem; 
+    max-width: 100rem;
+    max-height: 100%;
+    height: 970px;
+    margin-top: -3rem;
+    
+    object-fit: cover;
 }
 .main{
-    background-color: #ffff;
-    max-height: 50%;
-    height: 40rem;
-    max-width: 80%;
-    width: 85rem;
-    margin: 0 auto;
-    margin-top: 2%;
-    margin-left:6rem;
-    margin-right:5rem;
+    margin-left: 0.1rem; 
+    max-width: 100%;
+    width:1700px;
+    max-height: 100%;
+    height: 970px;
+    margin-top: -3rem;
+    background-color: rgba(136, 108, 148, 0.803);
+    
     object-fit: cover;
-   
-    border-radius: 10px;
-    box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
 }
+
 .header{
-    padding-top: 50px;
+    padding-top: 17%;
+    padding-left: 5rem;
+    color: #FF8C00;
+    width: auto;
+    text-align: center;
+    font-size: 8rem;
+}
+
+.header1{
+    padding-top: 2%;
+    padding-left: 5rem;
+    color: #ebdfba;
     width: auto;
     text-align: center;
 }
-.card-img-top{
-    
-    max-width:80%;
-    width: 15rem;
-
-    max-height: 100%;
-    height:15rem;
-    object-fit: cover;
-    border-radius: 15px;
-    margin-top: 6rem;
-    margin-left: 1rem;
-    
- 
+.header2{
+    padding-top: 2%;
+    padding-left: 5rem;
+    color: #FF8C00;
+    font-size: 2rem;
+    width: auto;
+    text-align: center;
 }
-.card-group{
-    overflow: hidden;
-    padding: 2rem;
-     margin-left: 7rem;
-     margin-right: 5rem;
-   display:grid;
-   grid-template-columns: repeat(3,1fr);
- 
-
-
+.header3{
+    padding-top: 1%;
+    padding-left: 5rem;
+    color: 	#FF8C00;
+    width: auto;
+    font-size: 4rem;
+    text-align: center;
 }
- .card-img-top:hover{
-    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
-
+.header4{
+    padding-top: 1%;
+    padding-left: 5rem;
+    color: #FF8C00;
+    width: auto;
+    font-size: 4rem;
+    text-align: center;
 }
+
+
+
+
  
- /* .card{
-    display:inline-flex;
-    
- } */
+ 
