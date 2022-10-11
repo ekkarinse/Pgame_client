@@ -91,23 +91,6 @@ const Blank = () => {
             
             </div>
         </div>
-    {/* <img id= "image" src={loginpic} alt="loginpic" width="300" height="400"></img>
-    <br></br><br></br>
-    <h2>Register</h2>
-    <input type="text" placeholder='ชื่อผู้ใช้'></input>
-    <input type="text" placeholder='รหัสผ่าน'></input>
-    <br></br><br></br>
-    <input type="text" placeholder='ชื่อ'></input>
-    <input type="text" placeholder='นามสกุล'></input>
-    <br></br><br></br>
-    <input type="text" placeholder='อีเมล์'></input>
-    <input type="text" placeholder='อายุ'></input>
-    <br></br><br></br>
-    <p>กด <u><a href="https://www.youtube.com/watch?v=dfztuzjh8N4">ข้อเสนอ</a></u> เพื่ออ่านเงื่อนไข</p>
-    <input type="checkbox">
-    </input>ยอมรับข้อเสนอ
-    <br></br><br></br>
-    <button>Register</button> */}
     </div>;
 };
 
