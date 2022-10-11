@@ -5,6 +5,8 @@ import './Blank.css';
 import "../vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
 
 const Blank = () => {
+    const [basicModal, setBasicModal] = useState(false);
+    const toggleShow = () => setBasicModal(!basicModal);
     return <div className="login">
     <head>
     <style>
