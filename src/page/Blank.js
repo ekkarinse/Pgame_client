@@ -3,9 +3,17 @@ import { Link } from "react-router-dom";
 import loginpic from "../picture/lizardboss.jpg";
 import './Blank.css';
 import "../vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Modal, Button} from 'react-bootstrap';
 
 const Blank = () => {
-    return <div className="login">
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    return( 
+    <>
+    <div className="login">
     <head>
     <style>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
@@ -58,34 +66,28 @@ const Blank = () => {
                     <div className='div-button'>
                         <button type="submit" class="btn btn-warning" size="lg">Register</button>
                     </div>
-
-                <div class="container">
-                {/* <!-- Trigger the modal with a button --> */}
-                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Modal</button>
-
-                {/* <!-- Modal --> */}
-                <div class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog">
-                    
-                    {/* <!-- Modal content--> */}
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Modal Header</h4>
-                        </div>
-                        <div class="modal-body">
-                        <p>Some text in the modal.</p>
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                </div> 
-                     
+                
                 </label>
                 </form>
+
+                <Button className="nextButton" onClick={handleShow}>
+        Open Modal
+      </Button>
+
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
             
             </div>
         </div>
@@ -106,7 +108,9 @@ const Blank = () => {
     </input>ยอมรับข้อเสนอ
     <br></br><br></br>
     <button>Register</button> */}
-    </div>;
+    </div>
+    </>
+    )
 };
 
 export default Blank;
