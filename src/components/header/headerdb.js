@@ -20,9 +20,10 @@ const Header = ({history,isLogged}) =>{
                     <div className='pic' style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
                         <img className='imageset' id= "image" src={loginpic} alt="loginpic" width="70" height="60"></img>
                         &nbsp;&nbsp;&nbsp;
-                        <div>
+                        <div class="namedb">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <l1 class="name">นายพสธร ภูมิคำ</l1>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </div>
                         &nbsp;&nbsp;&nbsp;
                         <Link to="/"><button className='button-header' class="btn btn-warning">Logout</button></Link>

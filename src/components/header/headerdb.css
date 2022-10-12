@@ -18,7 +18,7 @@ nav{
     align-items: center;
     flex-direction: row;
     height:180%;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
     display: flex;
     font-size: medium;
     justify-content: flex-end;
@@ -41,4 +41,9 @@ l1.name{
     /* text-align: center;
     align-items: center; */
     display: inline-block;
+}
+div.namedb{
+    text-align: center;
+    align-items: center;
+    font-size: medium;
 }
