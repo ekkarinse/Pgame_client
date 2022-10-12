@@ -19,7 +19,7 @@ const sidebarNavItems = [
         section: 'wheyprotein'
     },
     {
-        display: 'สมัครเมนเบอร์',
+        display: 'สมัครเมมเบอร์',
         icon: <i className='bx bx-calendar'></i>,
         to: '/member',
         section: 'member'
