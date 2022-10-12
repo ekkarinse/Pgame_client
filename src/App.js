@@ -3,6 +3,7 @@ import axios from "axios";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Blank from './page/Blank';
 import Dashboard from './page/Dashboard';
+import Member from './page/member';
 import AppLayout from './components/layout/AppLayout';
 import AppHeader from './components/layout/AppHeader';
 import './App.scss';
@@ -46,7 +47,7 @@ export default function App() {
                     <Route path='/wheyprotein' element={<wheyprotein />} />
                 </Route>
                 <Route path='/member' element={<AppLayout />}>
-                    <Route path='/member' element={<member />} />
+                    <Route path='/member' element={<Member />} />
                 </Route>
                 <Route path='/history' element={<AppLayout />}>
                     <Route path='/history' element={<history />} />
