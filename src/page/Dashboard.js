@@ -24,7 +24,7 @@ import "../vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
 
 const Dashboard = () => {
    
-    return <div className="container-lg-12">
+    return <div className="container-lg-12 con">
         <div className="container-sm   main">
             <h1 className="header"><b>Deep Dark Gyms</b></h1>
             <h3 className="header1"><b>สุขภาพที่ดีกว่าสร้างได้ด้วยตัวคุณ</b></h3>
