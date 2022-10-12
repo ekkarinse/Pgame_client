@@ -31,6 +31,7 @@ const Dashboard = () => {
             <p className="header2"><b>ลงทะเบียน</b></p>
             <h1 className="header3"><b>ออกกำลังกายฟรี</b></h1>
             <h1 className="header4"><b>3 วัน</b></h1>
+            <Link to="/" style={{ textDecoration: 'none' }}><button className="but" Link="/">ลงทะเบียน</button></Link> 
           
         </div>
     </div>;
