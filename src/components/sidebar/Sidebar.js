@@ -61,7 +61,7 @@ const Sidebar = () => {
     }, [location]);
 
     return <div className='sidebar'>
-        <div className="sidebar__logo"><Link to="/dashboard">Deep Dark Gyms</Link></div>
+        <div className="sidebar__logo"><Link to="/dashboard" style={{ textDecoration: 'none' }}><t className="sidebartext">Deep Dark Gyms</t></Link></div>
         {/* <hr></hr> */}
         {/* <br></br> */}
         <div ref={sidebarRef} className="sidebar__menu">
@@ -69,6 +69,7 @@ const Sidebar = () => {
                 ref={indicatorRef}
                 className="sidebar__menu__indicator"
                 style={{
+                    textDecoration: 'none',
                     transform: `translateX(-50%) translateY(-85px)`
                     // transform: `translateX(-50%) translateY(${activeIndex * stepHeight}px)`
                 }}
@@ -81,7 +82,9 @@ const Sidebar = () => {
             <br></br><br></br>
             {
                 sidebarNavItems.map((item, index) => (
-                    <Link to={item.to} key={index}>
+                    <Link to={item.to} key={index} style={{
+                        textDecoration: 'none',
+                    }}>
                         <div className={`sidebar__menu__item ${activeIndex === index ? 'active' : ''}`}>
                             <div className="sidebar__menu__item__icon">
                                 {item.icon}

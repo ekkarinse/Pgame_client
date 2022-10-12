@@ -20,9 +20,13 @@
         background-color: blueviolet;
         // font-family: 'Mochiy Pop P one', sans-serif;
     }
+    &__logo:hover{
+        color: #F0F0F0;
+    }
 
     &__menu {
         position: relative;
+        text-decoration: 'none';
 
         &__item {
             display: flex;
@@ -36,6 +40,7 @@
             // transition: color 0.3s ease-in-out;
 
             &.active {
+                text-decoration: 'none';
                 color: blueviolet;
             }
 
@@ -75,4 +80,7 @@ p{
     font-family: 'Tahoma';
     // font-weight: 700;
     // color: rgb(205, 23, 23);
+}
+t.sidebartext:hover{
+    color: #F0F0F0;
 }
