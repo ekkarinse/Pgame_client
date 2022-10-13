@@ -8,8 +8,11 @@ const member = () => {
    
     return <div className="container-lg-12 con1">
               <div className="container-lg-12 mainpage">
-                 <div className="container-lg-12 bg-pg">
-                
+                 <div className="container-lg-12 box-img">
+                      <img src="https://www.travelgay.com/wp-content/uploads/2022/02/man-exercise-fitness-stockpack-pixabay-scaled.jpg" className="img1"></img>
+                       <div>
+                            <img></img>
+                       </div>
                  </div>
                      
              </div>
