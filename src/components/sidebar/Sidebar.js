@@ -9,8 +9,8 @@ const sidebarNavItems = [
     {
         display: 'ข้อมูลเทรนเนอร์',
         icon: <i className='bx bx-home'></i>,
-        to: '/traindetail',
-        section: 'traindetail'
+        to: '/trainer',
+        section: 'trainer'
     },
     {
         display: 'เวย์โปรตีน',
