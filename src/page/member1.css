@@ -34,8 +34,8 @@
     width: 1700px;
 }
 .img1{
-   
-    width: 1550px;
+    max-width: 100%;
+    width: 1700px;
     height: 600px;
     object-fit: cover;
     margin-left: -1rem;
