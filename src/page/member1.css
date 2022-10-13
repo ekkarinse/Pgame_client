@@ -36,7 +36,7 @@
 }
 .img1{
     max-width: 100%;
-    width: 1700px;
+   min-width: 1715px;
     height: 600px;
     object-fit: cover;
     margin-left: -1rem;
