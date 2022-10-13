@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Sidebar from "../sidebar/Sidebar";
 import Headerdb from "../header/headerdb";
 import Burger from "../nav/Burger";
+import pic from "../../picture/4663114.png";
 
 
 const AppLayout = () => {
@@ -11,8 +12,6 @@ const AppLayout = () => {
     }}>
         <Burger />
         <Headerdb />
-        {/* <Burger /> */}
-        {/* <Sidebar /> */}
         <Outlet />
     </div>;
 };

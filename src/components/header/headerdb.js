@@ -9,10 +9,13 @@ import './headerdb.css';
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import loginpic from "../../picture/lizardboss.jpg";
+import pic from "../../picture/4663114.png";
+import Burger from "../nav/Burger";
 const Header = ({history,isLogged}) =>{
     return(
         <nav>
             <div className='div-headerdb'>
+            {/* <img className='burger' id= "image" src={pic} alt="loginpic" width="70" height="60" onClick={Burger}></img> */}
             {/* <h2>Deep Dark Gyms</h2> */}
                 {/* <div className='headerlogin' style={{display:'flex',flexDirection:'row',alignItems:'center'}}> */}
                     <form>
