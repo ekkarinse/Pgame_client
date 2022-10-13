@@ -5,6 +5,7 @@
     margin-left: -3.5rem;
 }
 .mainpage{
+    max-width: 100%;
     min-width: 1530px;
     
     max-height: 100%;
