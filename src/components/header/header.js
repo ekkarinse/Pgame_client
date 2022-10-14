@@ -12,8 +12,8 @@ const Swal = require('sweetalert2')
 const Header = ({history,isLogged}) =>{
 
   const [inputs, setInputs] = useState({    
-          "username":"",
-          "password":"",
+          "username":"bossza123",
+          "password":"2222",
         });
 
   const handleSubmit = (e) => {
@@ -29,7 +29,7 @@ const Header = ({history,isLogged}) =>{
     (function(response){
       
       if(response.data === true){
-        setInputs({...inputs,username:"",password:"",});
+        setInputs({...inputs,"username":"","password":"",});
       inputs.username="";
       inputs.password="";
       }
