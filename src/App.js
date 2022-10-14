@@ -6,6 +6,7 @@ import Dashboard from './page/Dashboard';
 import Trainer from './page/Trainer';
 import Member from './page/member';
 import Whey from './page/Whey';
+import History from './page/History';
 import AppLayout from './components/layout/AppLayout';
 import AppHeader from './components/layout/AppHeader';
 import './App.scss';
@@ -52,7 +53,7 @@ export default function App() {
                     <Route path='/member' element={<Member />} />
                 </Route>
                 <Route path='/history' element={<AppLayout />}>
-                    <Route path='/history' element={<history />} />
+                    <Route path='/history' element={<History />} />
                 </Route>
             </Routes>
             
