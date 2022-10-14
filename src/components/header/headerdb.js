@@ -15,9 +15,6 @@ const Header = ({history,isLogged}) =>{
     return(
         <nav>
             <div className='div-headerdb'>
-            {/* <img className='burger' id= "image" src={pic} alt="loginpic" width="70" height="60" onClick={Burger}></img> */}
-            {/* <h2>Deep Dark Gyms</h2> */}
-                {/* <div className='headerlogin' style={{display:'flex',flexDirection:'row',alignItems:'center'}}> */}
                     <form>
                     <label>
                     <div className='pic' style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
@@ -29,7 +26,9 @@ const Header = ({history,isLogged}) =>{
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </div>
                         &nbsp;&nbsp;&nbsp;
+                        <div>
                         <Link to="/"><button className='button-header' class="btn btn-warning">Logout</button></Link>
+                        </div>
                     </div>
                     </label>
                     </form>

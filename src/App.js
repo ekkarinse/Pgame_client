@@ -6,6 +6,7 @@ import Dashboard from './page/Dashboard';
 import Trainer from './page/Trainer';
 import Member from './page/Member';
 import Whey from './page/Whey';
+import History from './page/History';
 import AppLayout from './components/layout/AppLayout';
 import AppHeader from './components/layout/AppHeader';
 import './App.scss';
@@ -52,7 +53,7 @@ export default function App() {
                     <Route path='/Member' element={<Member />} />
                 </Route>
                 <Route path='/history' element={<AppLayout />}>
-                    <Route path='/history' element={<history />} />
+                    <Route path='/history' element={<History />} />
                 </Route>
             </Routes>
             
@@ -60,7 +61,7 @@ export default function App() {
     {/* <div>-----------test-----------</div>
     <button
         type="button"
-        onClick={()=>{testAPI_getall();}}>GET</button> */}
+        onClick={()=>{testAPI_getall();}}>GET</button>  */}
     </>
   );
 }
