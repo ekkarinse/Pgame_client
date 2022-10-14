@@ -57,7 +57,7 @@ export default function App() {
     {/* <div>-----------test-----------</div>
     <button
         type="button"
-        onClick={()=>{testAPI_getall();}}>GET</button> */}
+        onClick={()=>{testAPI_getall();}}>GET</button>  */}
     </>
   );
 }
