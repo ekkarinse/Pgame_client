@@ -29,7 +29,7 @@ const Header = ({history,isLogged}) =>{
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </div>
                         &nbsp;&nbsp;&nbsp;
-                        <button className='button-header' class="btn btn-warning"><Link to="/">Logout</Link></button>
+                        <Link to="/"><button className='button-header' class="btn btn-warning">Logout</button></Link>
                     </div>
                     </label>
                     </form>
