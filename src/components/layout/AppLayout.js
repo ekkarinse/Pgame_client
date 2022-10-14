@@ -1,15 +1,17 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "../sidebar/Sidebar";
-import Header from "../header/header";
+import Headerdb from "../header/headerdb";
+import Burger from "../nav/Burger";
+import pic from "../../picture/4663114.png";
 
 
 const AppLayout = () => {
     return <div style={{
-        padding: '40px 0px 0px 370px',
+         padding: '0px 0px 0px 0px',
         // padding: '0px 0px 0px 0px',
     }}>
-        {/* <Header /> */}
-        <Sidebar />
+        <Burger />
+        <Headerdb />
         <Outlet />
     </div>;
 };

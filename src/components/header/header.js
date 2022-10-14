@@ -1,9 +1,6 @@
 // import React from 'react';
 import { Link } from "react-router-dom";
 import {NavLink, withRouter} from 'react-router-dom'
-import {ReactComponent as Logo} from '../../assets/instagram.svg';
-import {ReactComponent as Home} from '../../assets/home.svg';
-import {ReactComponent as Explore} from '../../assets/explore.svg';
 import "../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
 import './header.css';
 import React , {useState} from 'react'

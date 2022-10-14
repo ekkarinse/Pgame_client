@@ -3,20 +3,22 @@ html{
    
     
 }
-.container-lg-12{
+/* css */
+.con{
     background-image: url("https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/e/7/d/e7df9905ae_50175413_fitness-sport.jpg");
-    margin-left: -3.5rem; 
-    max-width: 100rem;
+    margin-left: -3.5rem;
+    /* margin-top: 100px; */
+    max-width: 120rem;
     max-height: 100%;
     height: 970px;
-    margin-top: -3rem;
+    /* margin-top: -3rem; */
     
     object-fit: cover;
 }
 .main{
     margin-left: 0.1rem; 
-    max-width: 100%;
-    width:1700px;
+    max-width: 1900px;
+    
     max-height: 100%;
     height: 970px;
     margin-top: -3rem;
@@ -28,7 +30,8 @@ html{
 .header{
     padding-top: 17%;
     padding-left: 5rem;
-    color: #FF8C00;
+    /* color: #FF8C00; */
+    color: #FFC107;
     width: auto;
     text-align: center;
     font-size: 8rem;
@@ -44,7 +47,8 @@ html{
 .header2{
     padding-top: 2%;
     padding-left: 5rem;
-    color: #FF8C00;
+    /* color: #FF8C00; */
+    color: #FFC107;
     font-size: 2rem;
     width: auto;
     text-align: center;
@@ -52,7 +56,8 @@ html{
 .header3{
     padding-top: 1%;
     padding-left: 5rem;
-    color: 	#FF8C00;
+    /* color: 	#FF8C00; */
+    color: #FFC107;
     width: auto;
     font-size: 4rem;
     text-align: center;
@@ -60,7 +65,8 @@ html{
 .header4{
     padding-top: 1%;
     padding-left: 5rem;
-    color: #FF8C00;
+    /* color: #FF8C00; */
+    color: #FFC107;
     width: auto;
     font-size: 4rem;
     text-align: center;
@@ -68,8 +74,10 @@ html{
 .but{
     
     border: none;
-    background-color: #FF8C00;
-    color: #ffff;
+    /* background-color: #FF8C00; */
+    /* background-color: #FFC107; */
+    border-radius: 10px;
+    /* color: #ffff; */
     width: auto;
   
     display: flex;
@@ -95,4 +103,22 @@ html{
 
 
  
+.card-group{
+    overflow: hidden;
+     margin-left: 9%;
+   align-items: center;
+   justify-content: center;
+
+}
+ .card-img-top:hover{
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+
+}
  
+ .card{
+    display:inline-flex;
+    
+ }
+ .db{
+    margin-top: 100px;
+ }

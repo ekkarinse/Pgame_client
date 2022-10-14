@@ -15,11 +15,16 @@
     "qs": "^6.11.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
+    "react-burger-menu": "^3.0.8",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
+<<<<<<< HEAD
     "request": "^2.88.2",
     "sweetalert2": "^11.5.1",
+=======
+    "styled-components": "^5.3.6",
+>>>>>>> 2701d5ce7955e8cd8dead68b7ae59418fcab9217
     "web-vitals": "^2.1.4"
   },
   "scripts": {

@@ -1,0 +1,50 @@
+nav{
+    /* height: 50px; */
+    /* font-size: large; */
+    border: 0px solid;
+    color: #FFC107;
+}
+/* div.header{
+    margin-left: 30px;
+} */
+/* form.headerlogin{
+    margin-left: 30px;
+} */
+
+.div-headerdb{
+    /* padding-left: 40px;
+    padding-right: 40px; */
+    text-align: center;
+    align-items: center;
+    flex-direction: row;
+    height:180%;
+    /* background-color: blueviolet; */
+    display: flex;
+    font-size: medium;
+    justify-content: flex-end;
+    /* justify-content: space-between; */
+    padding-right: 50px;
+}
+.div-svg{
+    height: 30px;
+    width: 30px;
+    padding: 0 20px;
+}
+.active{
+    /* border-bottom: 2px solid firebrick; */
+}
+.input{
+    /* padding-left : 5px;
+    align-items: center; */
+    /* padding-right: 10px; */
+}
+l1.name{
+    /* text-align: center;
+    align-items: center; */
+    display: inline-block;
+}
+div.namedb{
+    text-align: center;
+    align-items: center;
+    font-size: medium;
+}

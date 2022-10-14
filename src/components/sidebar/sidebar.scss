@@ -3,8 +3,10 @@
     top: 0;
     left: 0;
     height: 100vh;
-    width: 320px;
-    background-color:  rgb(225, 213, 236);
+    width: 300px;
+    // background-color:  rgb(225, 213, 236);
+    background-color: #F0F0F0;
+    // border: 1px solid black;
 
     &__logo {
         display: grid;
@@ -14,11 +16,17 @@
         height: 120px;
         font-size: 2rem;
         font-weight: 700;
+        color: #FFC107; 
+        background-color: blueviolet;
         // font-family: 'Mochiy Pop P one', sans-serif;
+    }
+    &__logo:hover{
+        color: #F0F0F0;
     }
 
     &__menu {
         position: relative;
+        text-decoration: 'none';
 
         &__item {
             display: flex;
@@ -28,9 +36,11 @@
             font-size: 1.25rem;
             font-weight: 500;
             color: #000000;
+            // color: #FFC107;
             // transition: color 0.3s ease-in-out;
 
             &.active {
+                text-decoration: 'none';
                 color: blueviolet;
             }
 
@@ -70,4 +80,7 @@ p{
     font-family: 'Tahoma';
     // font-weight: 700;
     // color: rgb(205, 23, 23);
+}
+t.sidebartext:hover{
+    color: #F0F0F0;
 }
