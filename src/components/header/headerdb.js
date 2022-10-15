@@ -11,8 +11,26 @@ import { Link, useLocation } from 'react-router-dom';
 import loginpic from "../../picture/lizardboss.jpg";
 import pic from "../../picture/4663114.png";
 import Burger from "../nav/Burger";
+import axios from "axios";
 const Header = ({history,isLogged}) =>{
+    const Logout = (e) => {
+        
+    axios({
+        method:"get",
+        url: "http://localhost:3004/users/logout",
+        header:{
+          "Content-Type": "application/json",
+        }
+      }).then
+      (function(response){
+        console.log(response);
+    }).catch(function(error){
+        console.log("error");
+      })
+    }
     return(
+    <>
+    
         <nav>
             <div className='div-headerdb'>
                     <form>
@@ -27,7 +45,7 @@ const Header = ({history,isLogged}) =>{
                         </div>
                         &nbsp;&nbsp;&nbsp;
                         <div>
-                        <Link to="/"><button className='button-header' class="btn btn-warning">Logout</button></Link>
+                        <Link to="/"><button className='button-header' class="btn btn-warning" onClick={()=>{Logout();}}>Logout</button></Link>
                         </div>
                     </div>
                     </label>
@@ -36,6 +54,8 @@ const Header = ({history,isLogged}) =>{
                 </div>
             {/* </div> */}
         </nav>
+       
+        </>
     )
 }
 

@@ -5,11 +5,60 @@ import './Blank.css';
 import "../vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Modal, Button} from 'react-bootstrap';
+import axios from "axios";
 
 const Blank = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const [inputRegister, setRegister] = useState({    
+        "firstname":"",
+        "lastname":"",
+        "username":"",
+        "password":"",
+        "repassword":"",
+        "email":"",
+        "phone_number":"",
+        "age":"",
+      });
+const register = () =>{
+
+    console.log(inputRegister);
+    // axios({
+    //     method:"post",
+    //     url: "http://localhost:3004/users/postusers",
+    //     header:{
+    //       "Content-Type": "application/json",
+    //     },
+    //     data:inputRegister,
+    //   }).then(function(response){
+        // if(response.data === true){
+        //     setRegister({...inputRegister,
+        //     "firstname":"",
+        //     "lastname":"",
+        //     "username":"",
+        //     "password":"",
+        //     "email":"",
+        //     "phone_number":"",
+        //     "age":"",
+        // });
+
+        // inputRegister.firstname="";
+        // inputRegister.lastname="";
+        // inputRegister.username="";
+        // inputRegister.password="";
+        // inputRegister.email="";
+        // inputRegister.phone_number="";
+        // inputRegister.age="";
+        // }
+        // }).catch(function(error){
+        //     console.log("error");
+        //   })
+        
+        
+      
+}
+
 
     return( 
     <>
@@ -27,34 +76,76 @@ const Blank = () => {
     <div className='div-headerpage'>
         <img id= "image" src={loginpic} alt="loginpic" width="500" height="600"></img>
             <div className='pagelogin'>
-                <form>
+                <form onSubmit={register}>
                 <label>
                 <h2>Register</h2>
                 <br></br><br></br>
                     <div className="registerinput">
                     Usename : &nbsp;
-                    <input type="text" placeholder='ชื่อผู้ใช้' className="input col-8"></input>
+                    <input type="text" placeholder='ชื่อผู้ใช้' className="input col-8"                                
+                                value = {inputRegister.username}
+                                onChange={(e)=>{
+                                    setRegister({...inputRegister,username:e.target.value})
+                                }}></input>
                     &nbsp;&nbsp;
                     <br></br><br></br>
                     Password : &nbsp;
-                    <input type="password" placeholder='รหัสผ่าน' className="input col-8"></input>
+                    <input type="password" placeholder='รหัสผ่าน' className="input col-8" 
+                            value = {inputRegister.password}
+                            onChange={(e)=>{
+                                setRegister({...inputRegister,password:e.target.value})
+                            }}></input>
                     <br></br><br></br>
                     Re-password : &nbsp;
-                    <input type="password" placeholder='รหัสผ่านอีกครั้ง' className="input col-7"></input>
+                    <input type="password" placeholder='รหัสผ่านอีกครั้ง' className="input col-7"
+                            value = {inputRegister.repassword}
+                            onChange={(e)=>{
+                                setRegister({...inputRegister,repassword:e.target.value})
+                            }}
+                    ></input>
                     <br></br><br></br>
                     Name : &nbsp;
-                    <input type="text" placeholder='ชื่อ' className="input col-7"></input>
+                    <input type="text" placeholder='ชื่อ' className="input col-7"
+                            value = {inputRegister.firstname}
+                            onChange={(e)=>{
+                                setRegister({...inputRegister,firstname:e.target.value})
+                            }}
+                    ></input>
                     &nbsp;&nbsp;
                     <br></br><br></br>
                     Surename : &nbsp;
-                    <input type="text" placeholder='นามสกุล' className="input col-7"></input>
+                    <input type="text" placeholder='นามสกุล' className="input col-7"
+                            value = {inputRegister.lastname}
+                            onChange={(e)=>{
+                                setRegister({...inputRegister,lastname:e.target.value})
+                            }}
+                    ></input>
                     <br></br><br></br>
                     Email : &nbsp;
-                    <input type="email" placeholder='อีเมล์' className="input col-9"></input>
+                    <input type="email" placeholder='อีเมล์' className="input col-9"
+                            value = {inputRegister.email}
+                            onChange={(e)=>{
+                                setRegister({...inputRegister,email:e.target.value})
+                            }}
+                    ></input>
                     &nbsp;&nbsp;
                     <br></br><br></br>
+                    Phone number : &nbsp;
+                    <input type="text" placeholder='เบอร์โทรศัพท์' className="input col-7" size="10" maxLength="10"
+                            value = {inputRegister.phone_number}
+                            onChange={(e)=>{
+                                setRegister({...inputRegister,phone_number:e.target.value})
+                            }}
+                    ></input>
+                     &nbsp;&nbsp;
+                    <br></br><br></br>
                     Age : &nbsp;
-                    <input type="number" placeholder='อายุ' className="input col-sm-3" size="3" maxLength="3"></input>
+                    <input type="number" placeholder='อายุ' className="input col-sm-3" size="3" maxLength="3"
+                            value = {inputRegister.age}
+                            onChange={(e)=>{
+                                setRegister({...inputRegister,age:e.target.value})
+                            }}
+                    ></input>
                     </div>
                     <br></br><br></br>
                     <text>กด <u><a onClick={handleShow}>ข้อเสนอ</a></u> เพื่ออ่านเงื่อนไข</text>
@@ -63,11 +154,10 @@ const Blank = () => {
                     </input>&nbsp; 
                     ยอมรับข้อเสนอ
                     <br></br><br></br>
-                    <div className='div-button'>
+                </label>
+                <div className='div-button'>
                         <button type="submit" class="btn btn-warning" size="lg">Register</button>
                     </div>
-                
-                </label>
                 </form>
 
                 {/* <Button className="nextButton" onClick={handleShow}>
