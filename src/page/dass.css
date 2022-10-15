@@ -5,10 +5,10 @@ html{
 }
 /* css */
 .con{
-    background-image: url("https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/e/7/d/e7df9905ae_50175413_fitness-sport.jpg");
-    margin-left: -3.5rem;
+    background-image: url("../picture/dass.jpg");
+    margin-left: -0.5rem;
     /* margin-top: 100px; */
-    max-width: 120rem;
+    max-width: 1930px;
     max-height: 100%;
     height: 970px;
     /* margin-top: -3rem; */
@@ -17,7 +17,7 @@ html{
 }
 .main{
     margin-left: 0.1rem; 
-    max-width: 1900px;
+    max-width: 1970px;
     
     max-height: 100%;
     height: 970px;
@@ -30,7 +30,7 @@ html{
 .header{
     padding-top: 17%;
     padding-left: 5rem;
-    /* color: #FF8C00; */
+   
     color: #FFC107;
     width: auto;
     text-align: center;

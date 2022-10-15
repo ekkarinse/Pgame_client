@@ -6,7 +6,7 @@
 }
 .mainpage{
     max-width: 100%;
-    min-width: 1700px;
+    width: 120rem;
     
     max-height: 100%;
     height: 850px;
@@ -22,7 +22,7 @@
 .bg-pg{
 
     max-width: 100%;
-    width: 1700px;
+    width: 120rem;
     max-height: 100%;
     height: 850px;
     margin: 0 auto;
@@ -32,19 +32,22 @@
 }
 .box-img{
     max-width: 100%;
-    width: 1700px;
+    width: 110;
+    
+
+    
 }
 .img1{
     max-width: 100%;
-   min-width: 1715px;
+   min-width: 114.5rem;
     height: 600px;
     object-fit: cover;
     margin-left: -1rem;
-   
+
 }
 .img-menu{
     max-width: 100%;
-    width: 1700px;
+    min-width: 113.4rem;
     max-height: 100%;
     height: 250px;
     object-fit: cover;
@@ -55,11 +58,70 @@
 }
 /* css */
 .img2{
-
+    
     max-width: 100%;
-    width: 600px;
+    min-width: 38.8rem;
     max-height: 100%;
-    height: 250px;
+    height: 260px;
     object-fit: cover;
     margin-left: -1rem;
+}
+
+.text1{
+    position:relative;
+    color: #FFC107;
+    width: auto;
+    font-size: 4rem;
+    left: 5rem;
+    top: 13rem;
+    text-align: center;
+}
+
+.bg1{
+    position:absolute;
+    top: 120px;
+    left: -1rem;
+    max-width: 200%;
+    min-width: 113rem;  
+    max-height: 200%;
+    min-height: 600px;
+    overflow: hidden;
+    
+    background-color: rgba(138, 136, 136, 0.803);
+}
+.text2{
+    position:relative;
+    color: #FFC107;
+    width: auto;
+    font-size: 4rem;
+    text-align: center;
+    top: -180px;
+}
+.bg2{
+    position: absolute;
+    background-color: rgba(138, 136, 136, 0.803);
+    height: 100px;
+    top:720px
+
+}
+.confrim1{
+    position:absolute;
+    top: 890px;
+    left: 14rem;
+    overflow: hidden;
+    
+}
+.confrim2{
+    position:absolute;
+    top: 890px;
+    left: 51rem;
+    overflow: hidden;
+    
+}
+.confrim3{
+    position:absolute;
+    top: 890px;
+    left: 90rem;
+    overflow: hidden;
+    
 }

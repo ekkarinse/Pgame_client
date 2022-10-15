@@ -49,8 +49,8 @@ export default function App() {
                 <Route path='/wheyprotein' element={<AppLayout />}>
                     <Route path='/wheyprotein' element={<Whey />} />
                 </Route>
-                <Route path='/member' element={<AppLayout />}>
-                    <Route path='/member' element={<Member />} />
+                <Route path='/Member' element={<AppLayout />}>
+                    <Route path='/Member' element={<Member />} />
                 </Route>
                 <Route path='/history' element={<AppLayout />}>
                     <Route path='/history' element={<History />} />
