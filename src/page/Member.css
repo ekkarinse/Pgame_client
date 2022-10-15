@@ -1,0 +1,95 @@
+.member{
+    /* padding: 5%; */
+    margin-left: 5%;
+    margin-top: 5%;
+    /* height: 800px; */
+    width: 1500px;
+    border-radius: 40px;
+    color:  #FFC107;
+    /* align-items: center;
+    text-align: center; */
+    background-color: blueviolet;
+}
+.container{
+    padding-top: 3%;
+    padding-bottom: 5%;
+    text-align: center; 
+}
+.container21{
+    /* background-image: url("../picture/lizardboss.jpg"); */
+    background-image: url("../picture/memberpic.jpg");
+    background-size: 300px 400px;
+    padding-top: 3%;
+    height: 400px;
+    width: 500px;
+    /* padding-top: 3%;
+    padding-bottom: 5%; */
+    display:inline-block;
+    text-align: center; 
+    background-color: rgb(255, 255, 255);
+    border-radius: 40px;    
+}
+.container22{
+    /* background-image: url("../picture/lizardboss.jpg"); */
+    background-image: url("../picture/memberpic2.jpg");
+    background-size: 400px 400px;
+    padding-top: 3%;
+    height: 400px;
+    width: 500px;
+    /* padding-top: 3%;
+    padding-bottom: 5%; */
+    display:inline-block;
+    text-align: center; 
+    background-color: rgb(255, 255, 255);
+    border-radius: 40px;    
+}
+.container23{
+    /* background-image: url("../picture/lizardboss.jpg"); */
+    background-image: url("../picture/memberpic3.jpg");
+    background-size: 400px 400px;
+    padding-top: 3%;
+    height: 400px;
+    width: 500px;
+    /* padding-top: 3%;
+    padding-bottom: 5%; */
+    display:inline-block;
+    text-align: center; 
+    background-color: rgb(255, 255, 255);
+    border-radius: 40px;    
+}
+.container24{
+    /* background-image: url("../picture/lizardboss.jpg"); */
+    background-image: url("../picture/memberpic4.jpg");
+    background-size: 300px 400px;
+    padding-top: 3%;
+    height: 400px;
+    width: 500px;
+    /* padding-top: 3%;
+    padding-bottom: 5%; */
+    display:inline-block;
+    text-align: center; 
+    background-color: rgb(255, 255, 255);
+    border-radius: 40px;    
+}
+.allcontainer2{
+    /* padding-top: 3%;
+    padding-bottom: 5%; */
+    align-items: center;
+    text-align: center;
+    /* padding-left: 40%;
+    padding-right: 40%; */
+    background-color: rgb(255, 255, 255);
+    border-radius: 40px;    
+}
+p{
+    text-align: center;
+}
+h4{
+    background-color: blueviolet;
+    border-radius: 40px; 
+    margin-left: 10%;
+    margin-right: 10%;
+}
+/* .buttoncost{
+    text-decoration: none;
+} */

@@ -9,6 +9,10 @@ const Trainer = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const [show2, setShow2] = useState(false);
+    const handleClose2 = () => setShow2(false);
+    const handleShow2 = () => setShow2(true);
    
     return <div className="trainer">
         <div className="container">
@@ -121,17 +125,74 @@ const Trainer = () => {
 
             <Modal show={show} onHide={handleClose} centered>
                     <Modal.Header closeButton>
-                    <Modal.Title>ข้อเสนอ</Modal.Title>
+                    <Modal.Title>ข้อมูลการจองเทรนเนอร์</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; คำว่า”แม่” เป็นคำนิยามสั้น ๆ แต่ความหมายนั้นมากมายลึกซึ้ง เกินจะพรรณนา แม่เป็นผู้มีบุญคุณล้นเหลือ แม่เปรียบประดุจ ดาว ที่คอยส่งแสงเจิดจ้าคอยนำพาลูกน้อย แม่เปรียบประจ ครู คนแรกที่คอยอบรมสั่งสอนให้ได้ดี แม่เปรียบดั่ง “นางฟ้า” ที่สูงส่งในใจหนู วันนี้เป็นวันหนึ่งที่ผู้หญิงคนหนึ่งใช้สรรพนามเรียกตนเองว่า “แม่” แม่ได้ให้กำเนิดชีวิตน้อย ๆ ได้ลืมตามาดูโลก เก้าเดือนที่แม่ปกป้องกับหนึ่งวันที่ต้องเจ็บปวด มีใครรู้บ้างว่าผู้หญิงคนที่หนูเรียนกว่า แม่ จะต้องเจ็บปวดแค่ไหน วันที่หนูเกิด เป็นวันที่แม่เจ็บแต่กลับกลายเป็นวันที่แม่มีความสุขที่สุด เมื่อได้เห็นแววตาอันใสซื่อบริสุทธิ์ของลูกน้อย ถึงวันนี้เป็นวันที่แม่เบที่สุดในชีวิตแต่เป็นวันที่ประเสริฐของอีกชีวิตหนึ่ง แต่ลูกบางคนอาจจะไม่นึกถึงวันนี้มากนัก มีใครรู้บ้างว่าชีวิตแลกด้วยชีวิต เมื่อเราเกิดมาในโลกใบนี้ แม่ก็คือ ผู้หญิงคนแรกที่คอยป้อนข้าว ป้อนน้ำ เลี้ยงดูเราจนเติบใหญ่ แม่ได้ให้การศึกษาเท่าที่จะทำได้ แม่ให้เราทุกอย่างที่เราต้องการ แม่ไม่เคยมีคำว่า”ไม่” หรือ “ไม่ให้” กับลูก บางครั้งที่แม่ดุ แม่ทำไปก็มันเกิดจากความรัก ความผูกพันและความห่วงใย ที่แม่คนหนึ่งจะมีให้ แม่ทุกคนอยากให้ลูกเติบโตเป็นคนดี ลูกเป็นความหวังของพ่อแม่ เป็นดังแก้วตาดวงใจ แม่คอยเป็นกำลังใจให้และคอยความสำเร็จของลูกว่าลูกจะประสบความสำเร็จในภายหน้า เป็นคนดีของแม่ เป็นคนดีของสังคม และเป็นคนดีของประเทศชาติ
-                        เราได้เกิดมาครั้งหนึ่งในชีวิต เราเคยทำให้แม่มีความสุขบ้างหรือยัง สำหรับลูกบางคนเขาไม่มีโอกาสที่จะตอบแทนพระคุณแม่ สำหรับลูกที่มีโอกาส ควรรีบทดแทนพระคุณของแม่เมื่อตอนที่ยังมีชีวิตอยู่ ในฐานะที่หนูเป็นลูกคนหนึ่ง หนูจะตอบแทนพระคุณแม่ให้สมกับที่แม่รัก และหนูรักแม่ตลอดไป</Modal.Body>
+                    <Modal.Body>
+                        <div>
+                        <p className="text">ชื่อ : นายพสธร ใจหน่อใจ</p>
+                        <p className="text">รายระเอียด : เทรนเนอร์ประจำที่ Deep dark gym บริการเป็นกันเอง</p>
+                        <table class="table table-bordered" >
+                        <thead>
+                            <tr>
+                            <th scope="col">วันที่</th>
+                            <th scope="col">เวลา</th>
+                            {/* <th scope="col">Last</th> */}
+                            <th scope="col">จอง</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row" rowspan="3">15 ต.ค. 2565</th>
+                                <td class="menu">09:00 - 12:00</td>
+                                <td class="hire" onClick={handleShow2}>จอง</td>
+                            </tr>
+                            <tr>
+                                <td class="menu">13:00 - 16:00</td>
+                                {/* <td class="hired">ถูกจองแล้ว</td> */}
+                                <td class="hired">ถูกจองแล้ว</td>
+                            </tr>
+                            <tr>
+                                <td class="menu">17:00 - 20:00</td>
+                                <td class="hired">ถูกจองแล้ว</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" rowspan="3">16 ต.ค. 2565</th>
+                                <td class="menu">09:00 - 12:00</td>
+                                <td class="hired">ถูกจองแล้ว</td>
+                            </tr>
+                            <tr>
+                                <td class="menu">13:00 - 16:00</td>
+                                {/* <td class="hired">ถูกจองแล้ว</td> */}
+                                <td class="hire" onClick={handleShow2}>จอง</td>
+                            </tr>
+                            <tr>
+                                <td class="menu">17:00 - 20:00</td>
+                                <td class="hire" onClick={handleShow2}>จอง</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                        </div>
+
+                        <Modal show={show2} onHide={handleClose2} centered>
+                            <Modal.Header closeButton>
+                            <Modal.Title>ยืนยันการจอง</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body><p>คุณต้องการจองเทรนเนอร์หรือไม่ ?</p></Modal.Body>
+                            <Modal.Footer>
+                            <Button variant="btn btn-danger" onClick={handleClose2}>
+                                ปิด
+                            </Button>
+                            <Button variant="btn btn-success" onClick={handleClose2}>
+                                ยืนยัน
+                            </Button>
+                            </Modal.Footer>
+                        </Modal>
+
+                    </Modal.Body>
                     <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    {/* <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                    </Button> */}
                     </Modal.Footer>
                 </Modal>
           
