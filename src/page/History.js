@@ -8,8 +8,15 @@ const History = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const token = localStorage.getItem("token");
+    if(!token){
+        return window.location.href = "/";
+    }else{
+
    
-    return <div className="history">
+    return (
+    <>
+    <div className="history">
         <div className="container">
             <h2 className="head"><b>History</b></h2>
             <br></br>
@@ -96,7 +103,9 @@ const History = () => {
           
         </div>
     </div>;
-
+    </>
+    )
+    }
 
 };
 

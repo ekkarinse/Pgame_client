@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import './Trainer.css';
 import "../vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
 import pic from "../picture/lizardboss.jpg";
-import {useState} from 'react';
+import React , {useEffect, useState} from 'react'
 import {Modal, Button} from 'react-bootstrap';
-
+import axios from "axios";
 const Trainer = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -13,7 +13,29 @@ const Trainer = () => {
     const [show2, setShow2] = useState(false);
     const handleClose2 = () => setShow2(false);
     const handleShow2 = () => setShow2(true);
-   
+    const [inputTrainer, setTrainer] = useState({});
+    const token = localStorage.getItem("token");
+    if(!token){
+        return window.location.href = "/";
+    }else{
+
+        const show_trainer = () =>{
+    axios({
+        method:"get",
+        url: "http://localhost:3004/users/select_trainer_all",
+        header:{
+          "Content-Type": "application/json",
+        },
+        data:inputTrainer,
+        }).then((response)=>{
+            // console.log(response.data[0].firstname);
+            document.getElementById("user1").innerHTML =  response.data[0].firstname + " " + response.data[0].lastname;
+            document.getElementById("user2").innerHTML =  response.data[1].firstname + " " + response.data[1].lastname;
+        })
+
+    }
+    show_trainer();
+
     return <div className="trainer">
         <div className="container">
             <h2><b>Trainer</b></h2>
@@ -22,7 +44,7 @@ const Trainer = () => {
                 <div>
                 <img src={pic} alt="pic" width="250" height="300"></img>
                 <br></br><br></br>
-                    <p>นายพสธร ใจหน่อใจ</p>
+                    <p id="user1"></p>
                 {/* <br></br><br></br> */}
                 <Link to="" onClick={handleShow}><button className='button-header' class="btn btn-warning">ดูรายละเอียด</button></Link> 
                 </div>
@@ -30,7 +52,7 @@ const Trainer = () => {
                 <div>
                 <img src={pic} alt="pic" width="250" height="300"></img>
                 <br></br><br></br>
-                    <p>นายพสธร ใจหน่อใจ</p>
+                    <p id="user2"></p>
                 {/* <br></br><br></br> */}
                 <Link to="" onClick={handleShow}><button className='button-header' class="btn btn-warning">ดูรายละเอียด</button></Link> 
                 </div>
@@ -199,7 +221,7 @@ const Trainer = () => {
         </div>
     </div>;
 
-
+    }
 };
 
 export default Trainer;

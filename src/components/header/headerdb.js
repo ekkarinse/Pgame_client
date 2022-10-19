@@ -7,27 +7,23 @@ import {ReactComponent as Explore} from '../../assets/explore.svg';
 import "../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
 import './headerdb.css';
 import { useEffect, useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import {useLocation, useNavigate, Link } from 'react-router-dom';
 import loginpic from "../../picture/lizardboss.jpg";
 import pic from "../../picture/4663114.png";
 import Burger from "../nav/Burger";
 import axios from "axios";
+// const appToken = await getData('token')
+
 const Header = ({history,isLogged}) =>{
+    const token = localStorage.getItem("token");
+if(!token){
+    return window.location.href = "/";
+}else{
     const Logout = (e) => {
-        
-    axios({
-        method:"get",
-        url: "http://localhost:3004/users/logout",
-        header:{
-          "Content-Type": "application/json",
-        }
-      }).then
-      (function(response){
-        console.log(response);
-    }).catch(function(error){
-        console.log("error");
-      })
+        localStorage.removeItem('token')
     }
+    
+
     return(
     <>
     
@@ -45,7 +41,7 @@ const Header = ({history,isLogged}) =>{
                         </div>
                         &nbsp;&nbsp;&nbsp;
                         <div>
-                        <Link to="/"><button className='button-header' class="btn btn-warning" onClick={()=>{Logout();}}>Logout</button></Link>
+                        <Link to="/"><button className='button-header' class="btn btn-warning" onClick={Logout}>Logout</button></Link>
                         </div>
                     </div>
                     </label>
@@ -57,6 +53,6 @@ const Header = ({history,isLogged}) =>{
        
         </>
     )
+    }
 }
-
 export default Header;

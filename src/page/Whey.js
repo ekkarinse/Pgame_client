@@ -11,16 +11,37 @@ const Whey = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [inputWhey, setWhey] = useState({});
-    const getname = document.getElementById('name');
+    
+    
 
-    const getwhey = () => { axios.get('http://localhost:3004/product/select_whey').then(response => {
-        console.log(response.data);
+    // const getwhey = () => { axios.get('http://localhost:3004/product/select_whey').then(response => {
+    //     console.log(response.data);
        
-            getname.innerHTML = response.data[0].name_whey;
-            return response.data[0].name_whey;
-     });
+    //         getname.innerHTML = response.data[0].name_whey;
+    //         return response.data[0].name_whey;
+    //  });
  
-     };
+    //  };
+
+     const getwhey = () =>{
+        axios({
+            method:"get",
+            url: "http://localhost:3004/product/select_whey",
+            header:{
+              "Content-Type": "application/json",
+            },
+            data:inputWhey,
+            }).then((response)=>{
+                // console.log(response.data[0].firstname);
+                document.getElementById("name1").innerHTML  = response.data[0].name_whey;
+                document.getElementById("price1").innerHTML  = response.data[0].price_whey + " Baht";
+                document.getElementById("name2").innerHTML  = response.data[1].name_whey;
+                document.getElementById("price2").innerHTML  = response.data[1].price_whey + " Baht";
+                document.getElementById("name3").innerHTML  = response.data[2].name_whey;
+                document.getElementById("price3").innerHTML  = response.data[2].price_whey + " Baht";  
+            })
+        }
+        getwhey();
    
      
     // async function getwhey(){
@@ -47,6 +68,10 @@ const Whey = () => {
     //   }
 
     getwhey();
+    const token = localStorage.getItem("token");
+    if(!token){
+        return window.location.href = "/";
+    }else{
     return <div className="whey">
         
         <div className="container">
@@ -57,26 +82,26 @@ const Whey = () => {
                 <img src={pic} alt="pic" width="250" height="300"></img>
                 <br></br><br></br>
                 {/* <button onClick={getwhey}>Test</button> */}
-                <h1>ชื่อ : <span id="name" ></span></h1>
+                 <p id="name1"></p>
                     {/* <p>Optimum Nutrition Whey Protein Gold Standard 2LB</p> */}
                 {/* <br></br><br></br> */}
-                <Link to="" class="button" onClick={handleShow}><button className='button-header' class="btn btn-warning">1,250 Baht</button></Link> 
+                <Link to=""  class="button" onClick={handleShow}><button id="price1" className='button-header' class="btn btn-warning"></button></Link> 
                 </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div>
                 <img src={pic} alt="pic" width="250" height="300"></img>
                 <br></br><br></br>
-                    <p>Optimum Nutrition Whey Protein Gold Standard 2LB</p>
+                <p id="name2"></p>
                 {/* <br></br><br></br> */}
-                <Link to="" class="button" onClick={handleShow}><button className='button-header' class="btn btn-warning">1,250 Baht</button></Link> 
+                <Link to="" class="button" onClick={handleShow}><button id="price2" className='button-header' class="btn btn-warning"></button></Link> 
                 </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div>
                 <img src={pic} alt="pic" width="250" height="300"></img>
                 <br></br><br></br>
-                    <p>Optimum Nutrition Whey Protein Gold Standard 2LB</p>
+                <p id="name3"></p>
                 {/* <br></br><br></br> */}
-                <Link to="" class="button" onClick={handleShow}><button className='button-header' class="btn btn-warning">1,250 Baht</button></Link> 
+                <Link to="" class="button" onClick={handleShow}><button id="price3"className='button-header' class="btn btn-warning"></button></Link> 
                 </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div>
@@ -177,7 +202,7 @@ const Whey = () => {
         </div>
     </div>;
 
-
+    }
 };
 
 export default Whey;
