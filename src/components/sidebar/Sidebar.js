@@ -39,6 +39,7 @@ const sidebarNavItems = [
 ]
 
 const Sidebar = () => {
+
     const [activeIndex, setActiveIndex] = useState(0);
     const [stepHeight, setStepHeight] = useState(0);
     const sidebarRef = useRef();
@@ -98,6 +99,7 @@ const Sidebar = () => {
             }
         </div>
     </div>;
+    
 };
 
 export default Sidebar;

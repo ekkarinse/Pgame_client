@@ -1,15 +1,15 @@
-div.login{
-    margin: 30px;
-}
-.div-headerpage{
+.headerpage{
+    margin: 3rem;
     /* text-align: center; */
-    padding: 50px;
+    justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
     height:100%;
-    /* background-color: #91139a; */
     display: flex;
-    justify-content: space-evenly;
+}
+
+.page-login{
+    width: 30%;
 }
 h2 {
     align-items: center;
@@ -19,20 +19,36 @@ h2 {
 }
 label{
     margin-top: 1em;
-    /* text-align: center; */
 }
-/* form{
-    border-color: blueviolet;
-} */
+
 .div-button{
     text-align: center;
 }
-.input{
-    /* padding-left : 5px; */
 
-    /* align-items: center; */
-    /* padding-right: 10px; */
+
+.registerinput .row {
+    margin-bottom: 1rem;
 }
-/* div.regiterinput{
-    text-align: center;
-} */
+
+.container-register h2 {
+    margin-bottom: 2rem;
+}
+
+.col{
+    text-align: left;
+}
+
+.term {
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+
+.form-check{
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.bg-page{
+    background-color: blueviolet;
+    width: 1024px;
+}

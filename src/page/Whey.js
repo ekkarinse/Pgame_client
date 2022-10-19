@@ -9,7 +9,10 @@ const Whey = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-   
+    const token = localStorage.getItem("token");
+    if(!token){
+        return window.location.href = "/";
+    }else{
     return <div className="whey">
         <div className="container">
             <h2><b>Whey Protein</b></h2>
@@ -137,7 +140,7 @@ const Whey = () => {
         </div>
     </div>;
 
-
+    }
 };
 
 export default Whey;
