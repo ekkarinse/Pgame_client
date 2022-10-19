@@ -4,11 +4,34 @@ import "../vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
 import pic from "../picture/whey.jpg";
 import {useState} from 'react';
 import {Modal, Button} from 'react-bootstrap';
+import axios from "axios";
 
 const Whey = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const [inputWhey, setWhey] = useState({});
+
+    async function getwhey(){
+        const data = await axios.get("http://localhost:3004/product/select_whey").then(res => res.data);
+        console.log(data);
+        // axios({
+        //   method:"get",
+        //   url: "http://localhost:3004/product/select_whey",
+        //   header:{
+        //     "Content-Type": "application/json",
+        //   },
+        //   data:inputWhey,
+        // })
+        // .then(function(response){
+        //   console.log("success");
+        // //   console.log(response.data);
+        //   document.getElementById("wheyset").innerHTML = response.data;
+        // }).catch(function(error){
+        //   console.log("error");
+        // })
+      }
    
     return <div className="whey">
         <div className="container">
@@ -18,7 +41,10 @@ const Whey = () => {
                 <div>
                 <img src={pic} alt="pic" width="250" height="300"></img>
                 <br></br><br></br>
-                    <p>Optimum Nutrition Whey Protein Gold Standard 2LB</p>
+                    {/* {getwhey()} */}
+                    {/* <p>Optimum Nutrition Whey Protein Gold Standard 2LB</p> */}
+                    <button onClick={()=>{getwhey();}} id="wheyset">test</button >
+                    {/* <p>{getwhey(response.data)}</p> */}
                 {/* <br></br><br></br> */}
                 <Link to="" class="button" onClick={handleShow}><button className='button-header' class="btn btn-warning">1,250 Baht</button></Link> 
                 </div>
