@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import loginpic from "../picture/lizardboss.jpg";
 import './Blank.css';
 import "../vendor/bootstrap-select/dist/css/bootstrap-select.min.css";

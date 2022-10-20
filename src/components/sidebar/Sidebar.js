@@ -6,12 +6,12 @@ import './sidebar.scss';
 import "../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
 
 const sidebarNavItems = [
-    {
-        display: 'ข้อมูลเทรนเนอร์',
-        icon: <i className='bx bx-home'></i>,
-        to: '/trainer',
-        section: 'trainer'
-    },
+    // {
+    //     display: 'ข้อมูลเทรนเนอร์',
+    //     icon: <i className='bx bx-home'></i>,
+    //     to: '/trainer',
+    //     section: 'trainer'
+    // },
     {
         display: 'เวย์โปรตีน',
         icon: <i className='bx bx-star'></i>,
