@@ -13,10 +13,10 @@ const Swal = require('sweetalert2')
 const Header = ({history,isLogged}) =>{
   const navigate = useNavigate()
   const [inputs, setInputs] = useState({    
-          // username:"",
-          // password:"",
-          username:"bossza123",
-          password:"2222",
+          username:"",
+          password:"",
+          // username:"bossza123",
+          // password:"2222",
         });
   
   const handleSubmit = (e) => {

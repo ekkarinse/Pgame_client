@@ -20,6 +20,9 @@ const History = () => {
     const [inputHis, setHis] = useState({
         "users_id":decoded.users_id,
     });
+    const [inputdelete, setdelete] = useState({
+        "users_id":decoded.users_id,
+    });
     if(!token){
         return window.location.href = "/";
     }else{
@@ -44,6 +47,19 @@ const History = () => {
                             }       
                        })
                    }
+                   console.log(myJSON)
+                   const delete_history = ()=>{
+                    
+                    axios({
+                            method:"delete",
+                             url: "http://localhost:3004/users/deleteHistory",
+                             header:{
+                              "Content-Type": "application/json",
+                             },
+                             data:inputdelete,
+                            })
+        
+                       }
                   
      
     return (
@@ -53,6 +69,7 @@ const History = () => {
             <h2 className="head"><b>History</b></h2>
             <br></br>
             <div className="container2">
+            <button onClick={ delete_history} className='button-header' class="btn btn-warning btn_show" >delete</button>
             <button onClick={ get_history} className='button-header' class="btn btn-warning btn_show" >show</button>
            
             <table class="table table-bordered">
