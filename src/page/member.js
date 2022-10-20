@@ -26,8 +26,15 @@ const Member = () => {
             data:member,
             }).then((response)=>{
                 
-                console.log(response);
-              
+                
+                document.getElementById("month1").innerHTML  = response.data[0].list_member;
+                document.getElementById("price1").innerHTML  = response.data[0].price_member+" Baht";
+                document.getElementById("month2").innerHTML  = response.data[1].list_member;
+                document.getElementById("price2").innerHTML  = response.data[1].price_member+" Baht";
+                document.getElementById("month3").innerHTML  = response.data[2].list_member;
+                document.getElementById("price3").innerHTML  = response.data[2].price_member+" Baht";
+                document.getElementById("month4").innerHTML  = response.data[3].list_member;
+                document.getElementById("price4").innerHTML  = response.data[3].price_member+" Baht";
             })
         }
         
@@ -58,39 +65,39 @@ const Member = () => {
             <br></br>
             <div class="allcontainer21" style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
                 <div className="container21">
-                    <h4><b>1 เดือน</b></h4>
+                    <h4><b id="month1"></b></h4>
                     <br></br>
                     <p>- สามารถจ้างเทรนเนอร์</p>
                     <p>- สามารถซื้อเวย์โปรตีน</p>
                     <br></br>
-                    <button class="btn btn-warning" onClick={Show_detail_member}>2,200 Baht</button>
+                    <button class="btn btn-warning" id="price1" onClick={Show_detail_member}></button>
                 </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div className="container22">
-                    <h4><b>3 เดือน</b></h4>
+                    <h4><b id="month2"></b></h4>
                     <br></br>
                     <p>- สามารถจ้างเทรนเนอร์</p>
                     <p>- สามารถซื้อเวย์โปรตีน</p>
                     <br></br>
-                    <button class="btn btn-warning" onClick={handleShow}>6,500 Baht</button>
+                    <button class="btn btn-warning"  id="price2" onClick={handleShow}></button>
                 </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div className="container23">
-                    <h4><b>6 เดือน</b></h4>
+                    <h4><b id="month3"></b></h4>
                     <br></br>
                     <p>- สามารถจ้างเทรนเนอร์</p>
                     <p>- สามารถซื้อเวย์โปรตีน</p>
                     <br></br>
-                    <button class="btn btn-warning" onClick={handleShow}>12,000 Baht</button>
+                    <button class="btn btn-warning"  id="price3" onClick={handleShow}></button>
                 </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div className="container24">
-                    <h4><b>12 เดือน</b></h4>
+                    <h4><b id="month4"></b></h4>
                     <br></br>
                     <p>- สามารถจ้างเทรนเนอร์</p>
                     <p>- สามารถซื้อเวย์โปรตีน</p>
                     <br></br>
-                    <button class="btn btn-warning" onClick={handleShow}>22,000 Baht</button>
+                    <button class="btn btn-warning"  id="price4" onClick={handleShow}></button>
                 </div>
             </div>
 

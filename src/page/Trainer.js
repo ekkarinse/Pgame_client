@@ -31,8 +31,10 @@ const Trainer = () => {
             // console.log(response.data[0].firstname);
             document.getElementById("user1").innerHTML =  response.data[0].firstname + " " + response.data[0].lastname;
             document.getElementById("user2").innerHTML =  response.data[1].firstname + " " + response.data[1].lastname;
+            document.getElementById("user3").innerHTML =  response.data[2].firstname + " " + response.data[2].lastname;
+           
         })
-
+//   aaa
     }
     show_trainer();
 
@@ -60,89 +62,12 @@ const Trainer = () => {
                 <div>
                 <img src={pic} alt="pic" width="250" height="300"></img>
                 <br></br><br></br>
-                    <p>นายพสธร ใจหน่อใจ</p>
+                <p id="user3"></p>
                 {/* <br></br><br></br> */}
                 <Link to="" onClick={handleShow}><button className='button-header' class="btn btn-warning">ดูรายละเอียด</button></Link> 
                 </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div>
-                <img src={pic} alt="pic" width="250" height="300"></img>
-                <br></br><br></br>
-                    <p>นายพสธร ใจหน่อใจ</p>
-                {/* <br></br><br></br> */}
-                <Link to="" onClick={handleShow}><button className='button-header' class="btn btn-warning">ดูรายละเอียด</button></Link> 
-                </div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </div>
-            <br></br><br></br>
-            <div className="trainpic" style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
-                <div>
-                <img src={pic} alt="pic" width="250" height="300"></img>
-                <br></br><br></br>
-                    <p>นายพสธร ใจหน่อใจ</p>
-                {/* <br></br><br></br> */}
-                <Link to="" onClick={handleShow}><button className='button-header' class="btn btn-warning">ดูรายละเอียด</button></Link> 
-                </div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div>
-                <img src={pic} alt="pic" width="250" height="300"></img>
-                <br></br><br></br>
-                    <p>นายพสธร ใจหน่อใจ</p>
-                {/* <br></br><br></br> */}
-                <Link to="" onClick={handleShow}><button className='button-header' class="btn btn-warning">ดูรายละเอียด</button></Link> 
-                </div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div>
-                <img src={pic} alt="pic" width="250" height="300"></img>
-                <br></br><br></br>
-                    <p>นายพสธร ใจหน่อใจ</p>
-                {/* <br></br><br></br> */}
-                <Link to="" onClick={handleShow}><button className='button-header' class="btn btn-warning">ดูรายละเอียด</button></Link> 
-                </div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div>
-                <img src={pic} alt="pic" width="250" height="300"></img>
-                <br></br><br></br>
-                    <p>นายพสธร ใจหน่อใจ</p>
-                {/* <br></br><br></br> */}
-                <Link to="" onClick={handleShow}><button className='button-header' class="btn btn-warning">ดูรายละเอียด</button></Link> 
-                </div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </div>
-            <br></br><br></br>
-            <div className="trainpic" style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
-                <div>
-                <img src={pic} alt="pic" width="250" height="300"></img>
-                <br></br><br></br>
-                    <p>นายพสธร ใจหน่อใจ</p>
-                {/* <br></br><br></br> */}
-                <Link to="" onClick={handleShow}><button className='button-header' class="btn btn-warning">ดูรายละเอียด</button></Link> 
-                </div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div>
-                <img src={pic} alt="pic" width="250" height="300"></img>
-                <br></br><br></br>
-                    <p>นายพสธร ใจหน่อใจ</p>
-                {/* <br></br><br></br> */}
-                <Link to="" onClick={handleShow}><button className='button-header' class="btn btn-warning">ดูรายละเอียด</button></Link> 
-                </div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div>
-                <img src={pic} alt="pic" width="250" height="300"></img>
-                <br></br><br></br>
-                    <p>นายพสธร ใจหน่อใจ</p>
-                {/* <br></br><br></br> */}
-                <Link to="" onClick={handleShow}><button className='button-header' class="btn btn-warning">ดูรายละเอียด</button></Link> 
-                </div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div>
-                <img src={pic} alt="pic" width="250" height="300"></img>
-                <br></br><br></br>
-                    <p>นายพสธร ใจหน่อใจ</p>
-                {/* <br></br><br></br> */}
-                <Link to="" onClick={handleShow}><button className='button-header' class="btn btn-warning">ดูรายละเอียด</button></Link> 
-                </div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                
             </div>
 
             <Modal show={show} onHide={handleClose} centered>
