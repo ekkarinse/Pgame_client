@@ -15,10 +15,32 @@ import axios from "axios";
 // const appToken = await getData('token')
 
 const Header = ({history,isLogged}) =>{
+    const [inputUsers, setUsers] = useState({});
+
     const token = localStorage.getItem("token");
 if(!token){
     return window.location.href = "/";
 }else{
+
+    const check_token = () =>{
+        axios({
+            method:"post",
+            url: "http://localhost:3004/users/authen",
+            headers:{
+                Authorization:'Bearer '+ token,
+            },
+            data:inputUsers,
+            }).then((response)=>{
+                // console.log(response.data.decoded.firstname)
+                document.getElementById("account_name").innerHTML = response.data.decoded.firstname +" "+response.data.decoded.lastname;
+                
+            })
+    
+        }
+        check_token();
+
+
+
     const Logout = (e) => {
         localStorage.removeItem('token')
     }
@@ -36,7 +58,7 @@ if(!token){
                         &nbsp;&nbsp;&nbsp;
                         <div class="namedb">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <l1 class="name">นายพสธร ภูมิคำ</l1>
+                        <l1 class="name" id="account_name" ></l1>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </div>
                         &nbsp;&nbsp;&nbsp;

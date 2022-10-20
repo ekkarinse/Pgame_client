@@ -11,11 +11,28 @@ const Member = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const token = localStorage.getItem("token");
+    const [member, setmember] = useState({});
     if(!token){
         return window.location.href = "/";
     }else{
     // const [inputs, setInputs] = useState({});
-
+    const getmember = () =>{
+        axios({
+            method:"get",
+            url: "http://localhost:3004/users/selectMember",
+            header:{
+              "Content-Type": "application/json",
+            },
+            data:member,
+            }).then((response)=>{
+                
+                console.log(response);
+              
+            })
+        }
+        
+   
+  
     const Show_detail_member = () =>{
         axios({
             method:"get",
@@ -34,7 +51,7 @@ const Member = () => {
           })
         
     }
-   
+    getmember();
     return <div className="member">
         <div className="container">
             <h2><b>Member</b></h2>
