@@ -3,17 +3,33 @@ import './History.css';
 import "../vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
 import {useState} from 'react';
 import {Modal, Button} from 'react-bootstrap';
-
+import axios from "axios";
 const History = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const [history, sethistory] = useState({});
+
     const token = localStorage.getItem("token");
     if(!token){
         return window.location.href = "/";
     }else{
-
-   
+ 
+        const gethistroy = () =>{
+            axios({
+                method:"get",
+                url: "http://localhost:3004/users/selectBuy_history",
+                header:{
+                  "Content-Type": "application/json",
+                },
+                data:history,
+                }).then((response)=>{
+                    
+                    console.log(response);
+                  
+                })
+            }
+            gethistroy();
     return (
     <>
     <div className="history">
