@@ -4,11 +4,36 @@ import "../vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
 import pic from "../picture/whey.jpg";
 import {useState} from 'react';
 import {Modal, Button} from 'react-bootstrap';
+import axios from "axios";
 
 const Member = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const token = localStorage.getItem("token");
+    if(!token){
+        return window.location.href = "/";
+    }else{
+    // const [inputs, setInputs] = useState({});
+
+    const Show_detail_member = () =>{
+        axios({
+            method:"get",
+            url: "http://localhost:3004/users/selectMember",
+            header:{
+              "Content-Type": "application/json",
+            "Authorization": localStorage.getItem("token"),
+              
+            }
+            
+          }).then
+          (function(response){
+            console.log(response);
+        }).catch(function(error){
+            console.log("error");
+          })
+        
+    }
    
     return <div className="member">
         <div className="container">
@@ -21,7 +46,7 @@ const Member = () => {
                     <p>- สามารถจ้างเทรนเนอร์</p>
                     <p>- สามารถซื้อเวย์โปรตีน</p>
                     <br></br>
-                    <button class="btn btn-warning" onClick={handleShow}>2,200 Baht</button>
+                    <button class="btn btn-warning" onClick={Show_detail_member}>2,200 Baht</button>
                 </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div className="container22">
@@ -69,8 +94,7 @@ const Member = () => {
           
         </div>
     </div>;
-
-
+    }   
 };
 
 export default Member;

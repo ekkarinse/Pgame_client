@@ -4,32 +4,33 @@ import {NavLink, withRouter} from 'react-router-dom'
 import "../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
 import './header.css';
 import React , {useState} from 'react'
-// import { Link, useLocation } from 'react-router-dom';
+import {useLocation, useNavigate } from 'react-router-dom';
 import axios from "axios";
 // var qs = require('qs');
+
 const Swal = require('sweetalert2')
 
 const Header = ({history,isLogged}) =>{
-
+  const navigate = useNavigate()
   const [inputs, setInputs] = useState({    
           // username:"",
           // password:"",
           username:"bossza123",
           password:"2222",
         });
-
+  
   const handleSubmit = (e) => {
-
+    e.preventDefault();
     axios({
       method:"post",
       url: "http://localhost:3004/users/login",
       header:{
         "Content-Type": "application/json",
+ 
       },
       data:inputs,
     }).then
     (function(response){
-      
       if(response.data === true){
         setInputs({...inputs,"username":"","password":"",});
       inputs.username="";
@@ -45,7 +46,12 @@ const Header = ({history,isLogged}) =>{
           showConfirmButton: false,
           timer: 1500
         }).then((value)=>{
-          window.location.href = "/dashboard";
+          localStorage.setItem('token', response.data.token);
+          if(response.data.token){
+          navigate("/dashboard");
+          }else{
+            return;
+          }
         });
 
       }else{
@@ -71,7 +77,7 @@ const Header = ({history,isLogged}) =>{
             <div className='div-header'>
             <h2>Deep Dark Gyms</h2>
                 <div className='headerlogin' style={{display:'flex',flexDirection:'row',alignItems:'center'}}>
-                    {/* <form className='headerlogin'> */}
+                    <form className='headerlogin' onSubmit={handleSubmit}> 
                     <label className='headerlogin' >
                         <input placeholder='ชื่อผู้ใช้' className='input' size="15" type="text" name='username'
                                 value = {inputs.username}
@@ -92,8 +98,8 @@ const Header = ({history,isLogged}) =>{
                         {/* <Link to="/dashboard"> */}
                           {/* </Link> */}
                     </label>
-                    <button className='button-header' class="btn btn-warning" onClick={()=>{handleSubmit();}}>Login</button>
-                    {/* </form> */}
+                    <button className='button-header' class="btn btn-warning" type="submit">Login</button>
+                    </form>
                     {/* <button className='button-header' size="sm"><Link to="/dashboard" class="btn btn-primary" size="sm">Login</Link></button> */}
                 </div>
             </div>

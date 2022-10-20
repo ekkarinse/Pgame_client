@@ -2,6 +2,15 @@ import { Link } from "react-router-dom";
 import './dass.css';
 
 import "../vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
+import {useLocation, useNavigate} from 'react-router-dom';
+
+const Dashboard = () => {
+    const token = localStorage.getItem("token");
+    if(!token){
+       return window.location.href = "/";
+    }else{
+
+
 
 // const Dashboard = () => {
 //     return <div className="db">
@@ -22,10 +31,9 @@ import "../vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
               
 //             </div>
 
-
-const Dashboard = () => {
-   
-    return <div className="container-lg-12 con">
+    return (
+        <>
+    <div className="container-lg-12 con">
         <div className="container-sm   main">
             <h1 className="header"><b>Deep Dark Gyms</b></h1>
             <h3 className="header1"><b>สุขภาพที่ดีกว่าสร้างได้ด้วยตัวคุณ</b></h3>
@@ -36,8 +44,8 @@ const Dashboard = () => {
           
         </div>
     </div>;
-
-
+    </>
+    )
 };
-
+}
 export default Dashboard;

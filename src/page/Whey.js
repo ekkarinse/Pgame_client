@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import './Whey.css';
 import "../vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
 import pic from "../picture/whey.jpg";
-import {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import {Modal, Button} from 'react-bootstrap';
 import axios from "axios";
 
@@ -11,7 +11,7 @@ const Whey = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const [inputWhey, setWhey] = useState({});
+    const [inputWhey, setinputWhey] = useState({});
 
     async function getwhey(){
         const data = await axios.get("http://localhost:3004/product/select_whey").then(res => res.data);
@@ -25,14 +25,18 @@ const Whey = () => {
         //   data:inputWhey,
         // })
         // .then(function(response){
-        //   console.log("success");
-        // //   console.log(response.data);
-        //   document.getElementById("wheyset").innerHTML = response.data;
+        // //   console.log("success");
+        //   console.log(response.data);
+        // //   document.getElementById("wheyset").innerHTML = response.data;
         // }).catch(function(error){
         //   console.log("error");
         // })
       }
    
+    const token = localStorage.getItem("token");
+    if(!token){
+        return window.location.href = "/";
+    }else{
     return <div className="whey">
         <div className="container">
             <h2><b>Whey Protein</b></h2>
@@ -163,7 +167,7 @@ const Whey = () => {
         </div>
     </div>;
 
-
+    }
 };
 
 export default Whey;

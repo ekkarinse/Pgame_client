@@ -13,6 +13,11 @@ const Trainer = () => {
     const [show2, setShow2] = useState(false);
     const handleClose2 = () => setShow2(false);
     const handleShow2 = () => setShow2(true);
+    const token = localStorage.getItem("token");
+    if(!token){
+        return window.location.href = "/";
+    }else{
+        
    
     return <div className="trainer">
         <div className="container">
@@ -199,7 +204,7 @@ const Trainer = () => {
         </div>
     </div>;
 
-
+    }
 };
 
 export default Trainer;
