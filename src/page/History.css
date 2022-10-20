@@ -23,6 +23,11 @@
 .head{
     text-align: left;
 }
-.menu{
+.menuname{
     text-align: left;
+}
+.btn_show{
+    margin-left: 92%;
+    margin-bottom: 1%;
+    margin-top: 1%;
 }

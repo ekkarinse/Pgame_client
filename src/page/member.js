@@ -46,7 +46,7 @@ const Member = () => {
             url: "http://localhost:3004/users/selectMember",
             header:{
               "Content-Type": "application/json",
-            "Authorization": localStorage.getItem("token"),
+              "Authorization": localStorage.getItem("token"),
               
             }
             
@@ -70,7 +70,7 @@ const Member = () => {
                     <p>- สามารถจ้างเทรนเนอร์</p>
                     <p>- สามารถซื้อเวย์โปรตีน</p>
                     <br></br>
-                    <button class="btn btn-warning" id="price1" onClick={Show_detail_member}></button>
+                    <button class="btn btn-warning" id="price1" onClick={handleShow}></button>
                 </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div className="container22">

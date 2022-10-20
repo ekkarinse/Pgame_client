@@ -90,30 +90,30 @@ const Trainer = () => {
                         <tbody>
                             <tr>
                                 <th scope="row" rowspan="3">15 ต.ค. 2565</th>
-                                <td class="menu">09:00 - 12:00</td>
+                                <td class="menutime">09:00 - 12:00</td>
                                 <td class="hire" onClick={handleShow2}>จอง</td>
                             </tr>
                             <tr>
-                                <td class="menu">13:00 - 16:00</td>
+                                <td class="menutime">13:00 - 16:00</td>
                                 {/* <td class="hired">ถูกจองแล้ว</td> */}
                                 <td class="hired">ถูกจองแล้ว</td>
                             </tr>
                             <tr>
-                                <td class="menu">17:00 - 20:00</td>
+                                <td class="menutime">17:00 - 20:00</td>
                                 <td class="hired">ถูกจองแล้ว</td>
                             </tr>
                             <tr>
                                 <th scope="row" rowspan="3">16 ต.ค. 2565</th>
-                                <td class="menu">09:00 - 12:00</td>
+                                <td class="menutime">09:00 - 12:00</td>
                                 <td class="hired">ถูกจองแล้ว</td>
                             </tr>
                             <tr>
-                                <td class="menu">13:00 - 16:00</td>
+                                <td class="menutime">13:00 - 16:00</td>
                                 {/* <td class="hired">ถูกจองแล้ว</td> */}
                                 <td class="hire" onClick={handleShow2}>จอง</td>
                             </tr>
                             <tr>
-                                <td class="menu">17:00 - 20:00</td>
+                                <td class="menutime">17:00 - 20:00</td>
                                 <td class="hire" onClick={handleShow2}>จอง</td>
                             </tr>
                         </tbody>

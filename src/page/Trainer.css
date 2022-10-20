@@ -26,10 +26,12 @@
 }
 .hired{
     color: red;
+    cursor: not-allowed;
 }
 .hire{
     color: green;
+    cursor: pointer;
 }
-.menu{
+.menutime{
     text-align: center;
 }

@@ -1,4 +1,4 @@
-import React , {useState} from 'react'
+import React , {useState, useEffect} from 'react'
 import axios from "axios";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Blank from './page/Blank';
@@ -10,6 +10,7 @@ import History from './page/History';
 import AppLayout from './components/layout/AppLayout';
 import AppHeader from './components/layout/AppHeader';
 import './App.scss';
+
 const moment = require('moment');
 export default function App() {
 

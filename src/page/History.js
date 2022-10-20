@@ -1,35 +1,51 @@
-import { Link } from "react-router-dom";
+import { Link, resolvePath } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 import './History.css';
 import "../vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
-import {useState} from 'react';
+import React, { useState } from 'react';
 import {Modal, Button} from 'react-bootstrap';
 import axios from "axios";
 const History = () => {
+    
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [history, sethistory] = useState({});
-
+   
+    const [inputHisto, setHisto] = useState([]);
+    const [inputUsers, setUsers] = useState({});
     const token = localStorage.getItem("token");
+    var decoded = jwt_decode(token);
+    const myJSON = JSON.stringify(decoded.users_id);
+    const [inputHis, setHis] = useState({
+        "users_id":decoded.users_id,
+    });
     if(!token){
         return window.location.href = "/";
     }else{
- 
-        const gethistroy = () =>{
-            axios({
-                method:"get",
-                url: "http://localhost:3004/users/selectBuy_history",
-                header:{
-                  "Content-Type": "application/json",
-                },
-                data:history,
-                }).then((response)=>{
-                    
-                    console.log(response);
+        const get_history = ()=>{
+                // console.log(myJSON)
+                axios({
+                        method:"post",
+                         url: "http://localhost:3004/users/selectHistory",
+                         header:{
+                          "Content-Type": "application/json",
+                         },
+                         data:inputHis,
+                        }).then((response)=>{
+                            
+                            if(decoded.status === "Ok"){
+                             
+                            console.log(response.data)
+                            setHisto(response.data)
+
+                            
+                        
+                            }       
+                       })
+                   }
                   
-                })
-            }
-            gethistroy();
+     
     return (
     <>
     <div className="history">
@@ -37,7 +53,10 @@ const History = () => {
             <h2 className="head"><b>History</b></h2>
             <br></br>
             <div className="container2">
+            <button onClick={ get_history} className='button-header' class="btn btn-warning btn_show" >show</button>
+           
             <table class="table table-bordered">
+               
                 <thead>
                     <tr>
                     <th scope="col">ลำดับ</th>
@@ -47,71 +66,21 @@ const History = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td class="menu" colspan="2">สมัครเมมเบอร์รายวัน</td>
-                        <td>300 Baht</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td class="menu" colspan="2">Optimum Nutrition Whey Protein Gold Standard 2LB</td>
-                        <td>1,250 Baht</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td class="menu" colspan="2">Optimum Nutrition Whey Protein Gold Standard 2LB</td>
-                        <td>1,250 Baht</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td class="menu" colspan="2">Optimum Nutrition Whey Protein Gold Standard 2LB</td>
-                        <td>1,250 Baht</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td class="menu" colspan="2">Optimum Nutrition Whey Protein Gold Standard 2LB</td>
-                        <td>1,250 Baht</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td class="menu" colspan="2">Optimum Nutrition Whey Protein Gold Standard 2LB</td>
-                        <td>1,250 Baht</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">6</th>
-                        <td class="menu" colspan="2">Optimum Nutrition Whey Protein Gold Standard 2LB</td>
-                        <td>1,250 Baht</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">7</th>
-                        <td class="menu" colspan="2">Optimum Nutrition Whey Protein Gold Standard 2LB</td>
-                        <td>1,250 Baht</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">8</th>
-                        <td class="menu" colspan="2">Optimum Nutrition Whey Protein Gold Standard 2LB</td>
-                        <td>1,250 Baht</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">9</th>
-                        <td class="menu" colspan="2">Optimum Nutrition Whey Protein Gold Standard 2LB</td>
-                        <td>1,250 Baht</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">10</th>
-                        <td class="menu" colspan="2">Optimum Nutrition Whey Protein Gold Standard 2LB</td>
-                        <td>1,250 Baht</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">11</th>
-                        <td class="menu" colspan="2">Optimum Nutrition Whey Protein Gold Standard 2LB</td>
-                        <td>1,250 Baht</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">12</th>
-                        <td class="menu" colspan="2">Optimum Nutrition Whey Protein Gold Standard 2LB</td>
-                        <td>1,250 Baht</td>
-                    </tr>
+                {inputHisto.map((val,key) => {
+                            return (
+                        
+                          <tr>
+                            <th scope="row">{key+1}</th>
+                            <td class="menuname" id="history1" colspan="2">{val.buy_list}</td>
+                            <td id="price1">{val.product_price}</td>
+                          </tr>
+                     
+
+                            )
+                        })}
+                    {inputHisto.map}
+
+                   
                 </tbody>
                 </table>
             
