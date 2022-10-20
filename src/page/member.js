@@ -5,18 +5,27 @@ import pic from "../picture/whey.jpg";
 import {useState} from 'react';
 import {Modal, Button} from 'react-bootstrap';
 import axios from "axios";
-
+import jwt_decode from "jwt-decode";
 const Member = () => {
+    const [inputcheck_auth, setcheck_auth] = useState({"users_id":""});
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const token = localStorage.getItem("token");
+    var decoded = jwt_decode(token);
+
     const [member, setmember] = useState({});
+    const [inputmonth1, setmonth1] = useState({
+            "users_id":decoded.users_id,
+            "buy_list":"1 เดือน",
+            "product_price":"2200",
+    });
     if(!token){
         return window.location.href = "/";
     }else{
     // const [inputs, setInputs] = useState({});
     const getmember = () =>{
+        console.log(decoded.users_id);
         axios({
             method:"get",
             url: "http://localhost:3004/users/selectMember",
@@ -25,8 +34,7 @@ const Member = () => {
             },
             data:member,
             }).then((response)=>{
-                
-                
+
                 document.getElementById("month1").innerHTML  = response.data[0].list_member;
                 document.getElementById("price1").innerHTML  = response.data[0].price_member+" Baht";
                 document.getElementById("month2").innerHTML  = response.data[1].list_member;
@@ -37,27 +45,25 @@ const Member = () => {
                 document.getElementById("price4").innerHTML  = response.data[3].price_member+" Baht";
             })
         }
+       
         
-   
-  
-    const Show_detail_member = () =>{
+      const get_month1 = ()=>{
+
         axios({
-            method:"get",
-            url: "http://localhost:3004/users/selectMember",
+            method:"post",
+            url: "http://localhost:3004/users/insertHistory",
             header:{
               "Content-Type": "application/json",
-            "Authorization": localStorage.getItem("token"),
-              
-            }
-            
-          }).then
-          (function(response){
-            console.log(response);
-        }).catch(function(error){
-            console.log("error");
-          })
-        
-    }
+            },
+            data:inputmonth1,
+            }).then((response)=>{
+            console.log(response.data);
+
+            })
+      }
+   
+  
+      
     getmember();
     return <div className="member">
         <div className="container">
@@ -70,7 +76,7 @@ const Member = () => {
                     <p>- สามารถจ้างเทรนเนอร์</p>
                     <p>- สามารถซื้อเวย์โปรตีน</p>
                     <br></br>
-                    <button class="btn btn-warning" id="price1" onClick={Show_detail_member}></button>
+                    <button class="btn btn-warning" id="price1" onClick={handleShow}></button>
                 </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div className="container22">
@@ -110,7 +116,7 @@ const Member = () => {
                     <Button variant="btn btn-danger" onClick={handleClose}>
                         ปิด
                     </Button>
-                    <Button variant="btn btn-success" onClick={handleClose}>
+                    <Button variant="btn btn-success" onClick={get_month1}>
                         ยืนยัน
                     </Button>
                     </Modal.Footer>

@@ -54,7 +54,8 @@ const Header = ({history,isLogged}) =>{
             no-repeat
           `
         }).then((value)=>{
-          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('token', response.data.token)   
+          
           if(response.data.token){
           navigate("/dashboard");
           }else{

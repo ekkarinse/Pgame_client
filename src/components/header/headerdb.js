@@ -21,7 +21,7 @@ const Header = ({history,isLogged}) =>{
 if(!token){
     return window.location.href = "/";
 }else{
-
+    
     const check_token = () =>{
         axios({
             method:"post",
