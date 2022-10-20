@@ -11,17 +11,11 @@ const Whey = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [inputWhey, setWhey] = useState({});
+    const token = localStorage.getItem("token");
+    if(!token){
+        return window.location.href = "/";
+    }else{
     
-    
-
-    // const getwhey = () => { axios.get('http://localhost:3004/product/select_whey').then(response => {
-    //     console.log(response.data);
-       
-    //         getname.innerHTML = response.data[0].name_whey;
-    //         return response.data[0].name_whey;
-    //  });
- 
-    //  };
 
      const getwhey = () =>{
         axios({
@@ -42,36 +36,7 @@ const Whey = () => {
             })
         }
         getwhey();
-   
-     
-    // async function getwhey(){
-    //     const data = await axios.get("http://localhost:3004/product/select_whey").then(response => {
-    //         console.log(response.data[0]);
-    //         getname.innerHTML = response.data.name_whey;
-    //     });
-     
-        // axios({
-        //   method:"get",
-        //   url: "http://localhost:3004/product/select_whey",
-        //   header:{
-        //     "Content-Type": "application/json",
-        //   },
-        //   data:inputWhey,
-        // })
-        // .then(function(response){
-        //   console.log("success");
-        // //   console.log(response.data);
-        //   document.getElementById("wheyset").innerHTML = response.data;
-        // }).catch(function(error){
-        //   console.log("error");
-        // })
-    //   }
 
-    getwhey();
-    const token = localStorage.getItem("token");
-    if(!token){
-        return window.location.href = "/";
-    }else{
     return <div className="whey">
         
         <div className="container">
@@ -81,10 +46,7 @@ const Whey = () => {
                 <div>
                 <img src={pic} alt="pic" width="250" height="300"></img>
                 <br></br><br></br>
-                {/* <button onClick={getwhey}>Test</button> */}
                  <p id="name1"></p>
-                    {/* <p>Optimum Nutrition Whey Protein Gold Standard 2LB</p> */}
-                {/* <br></br><br></br> */}
                 <Link to=""  class="button" onClick={handleShow}><button id="price1" className='button-header' class="btn btn-warning"></button></Link> 
                 </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
