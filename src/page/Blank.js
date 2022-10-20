@@ -1,13 +1,15 @@
 import {useState, useEffect} from 'react';
-import { Link } from "react-router-dom";
+import {useLocation, useNavigate } from 'react-router-dom';
 import loginpic from "../picture/lizardboss.jpg";
 import './Blank.css';
 import "../vendor/bootstrap-select/dist/css/bootstrap-select.min.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Modal, Button} from 'react-bootstrap';
 import axios from "axios";
+const Swal = require('sweetalert2')
 
 const Blank = () => {
+    const navigate = useNavigate()
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -21,6 +23,9 @@ const Blank = () => {
         "phone_number":"",
         "age":"",
       });
+      const [error, setError] = useState(false);
+      const [ isAlertVisible, setIsAlertVisible ] = useState(false);
+      const [submitted, setSubmitted] = useState(false);
       const token = localStorage.getItem("token");
       if(token){
         return window.location.href = "/dashboard";
@@ -29,43 +34,191 @@ const Blank = () => {
 const register = () =>{
     // e.preventDefault();
    
+    // console.log(inputRegister);
+    if(inputRegister.firstname === '' || inputRegister.lastname === ''|| inputRegister.username === '' ||
+        inputRegister.password === ''|| inputRegister.repassword ==='' || inputRegister.email === '' || inputRegister.phone_number ==='' || inputRegister.age ===''
+    ){
+        Swal.fire({
+            title: 'register failed',
+            icon: 'error',
+            showConfirmButton: false,
+            timer: 1500,
+            width: 600,
+            padding: '3em',
+            color: '#716add',
+            backdrop: `
+              rgba(0,0,123,0.4)
+              url("https://sweetalert2.github.io/images/nyan-cat.gif")
+              left top
+              no-repeat
+            `
+          })
+        setError(true);
+    }else if(inputRegister.password != inputRegister.repassword){
+        Swal.fire({
+            title: 'register failed',
+            icon: 'error',
+            showConfirmButton: false,
+            timer: 1500,
+            width: 600,
+            padding: '3em',
+            color: '#716add',
+            backdrop: `
+              rgba(0,0,123,0.4)
+              url("https://sweetalert2.github.io/images/nyan-cat.gif")
+              left top
+              no-repeat
+            `
+          })
+        setError(true);
+
+    }else if( !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(inputRegister.email)){
+
+        Swal.fire({
+            title: 'register failed',
+            icon: 'error',
+            showConfirmButton: false,
+            timer: 1500,
+            width: 600,
+            padding: '3em',
+            color: '#716add',
+            backdrop: `
+              rgba(0,0,123,0.4)
+              url("https://sweetalert2.github.io/images/nyan-cat.gif")
+              left top
+              no-repeat
+            `
+          })
+        setError(true);
+    }
+    else{
+        console.log(inputRegister);
+        axios({
+        method:"post",
+        url: "http://localhost:3004/users/postusers",
+        header:{
+          "Content-Type": "application/json",
+        },
+        data:inputRegister,
+      }).then(function(response){
+        if(response.data === true){
+            setRegister({...inputRegister,
+            "firstname":"",
+            "lastname":"",
+            "username":"",
+            "password":"",
+            "email":"",
+            "phone_number":"",
+            "age":"",
+        });
+
+        inputRegister.firstname="";
+        inputRegister.lastname="";
+        inputRegister.username="";
+        inputRegister.password="";
+        inputRegister.email="";
+        inputRegister.phone_number="";
+        inputRegister.age="";
+        }
+        if(response.data.status === 'Ok'){
+           
+                Swal.fire({
+                    title: 'register successfully',
+                    icon: 'success',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    width: 600,
+                    padding: '3em',
+                    color: '#716add',
+                    backdrop: `
+                      rgba(0,0,123,0.4)
+                      url("https://sweetalert2.github.io/images/nyan-cat.gif")
+                      left top
+                      no-repeat
+                    `
+                  })
+                    
+                setSubmitted(true);
+                setError(false);
+            }else {
+                Swal.fire({
+                    title: 'register failed',
+                    icon: 'error',
+                    showConfirmButton: false,
+                    timer: 1500,
+                    width: 600,
+                    padding: '3em',
+                    color: '#716add',
+                    backdrop: `
+                      rgba(0,0,123,0.4)
+                      url("https://sweetalert2.github.io/images/nyan-cat.gif")
+                      left top
+                      no-repeat
+                    `
+                  })
+                  
     
-    console.log(inputRegister);
-    // axios({
-    //     method:"post",
-    //     url: "http://localhost:3004/users/postusers",
-    //     header:{
-    //       "Content-Type": "application/json",
-    //     },
-    //     data:inputRegister,
-    //   }).then(function(response){
-        // if(response.data === true){
-        //     setRegister({...inputRegister,
-        //     "firstname":"",
-        //     "lastname":"",
-        //     "username":"",
-        //     "password":"",
-        //     "email":"",
-        //     "phone_number":"",
-        //     "age":"",
-        // });
+            }
+    
+        }).catch(function(error){
+            console.log("error");
+          })
 
-        // inputRegister.firstname="";
-        // inputRegister.lastname="";
-        // inputRegister.username="";
-        // inputRegister.password="";
-        // inputRegister.email="";
-        // inputRegister.phone_number="";
-        // inputRegister.age="";
-        // }
-        // }).catch(function(error){
-        //     console.log("error");
-        //   })
         
-        
-      
-}
+    }
+ 
+}//register
 
+const successMessage = () => {
+    return (
+      <div
+        className="success"
+        style={{
+          display: submitted ? '' : 'none',
+        }}>
+        <span id="M_error"></span>
+      </div>
+    );
+  };
+
+const errorMessage = () => {
+
+    if(inputRegister.password != inputRegister.repassword){
+       
+        return (
+            <div
+                className="error"
+             style={{
+                 display: error ? '' : 'none',
+                }}>
+                <span id="M_error">*Please check password and repassword</span>
+            </div>
+            );
+    }else if( !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(inputRegister.email)){
+
+        return (
+            <div
+                className="error"
+             style={{
+                 display: error ? '' : 'none',
+                }}>
+                <span id="M_error">Invalid email address</span>
+            </div>
+            );
+    }else{
+    
+        return (
+        <div
+            className="error"
+         style={{
+             display: error ? '' : 'none',
+            }}>
+            <span id="M_error">*Please enter all the fields</span>
+        </div>
+        );
+    }
+    
+  };
 
     return( 
     <>
@@ -87,23 +240,25 @@ const register = () =>{
                 <div className='pagelogin'>
                     <div className="container-register">
                         <h2>Register</h2>
-                        {/* <form onSubmit={register}> */}
+                       
+                        <form onSubmit={register}>
                         <div className="registerinput">
+                        
                                 <div className="row">
                                     <div className="col">Username : </div>
                                     <div className="col-6">
-                                        <input type="text" placeholder='ชื่อผู้ใช้' className="form-control"                                
+                                        <input type="text"  placeholder='ชื่อผู้ใช้' className="form-control"                                
                                                 value = {inputRegister.username}
                                                 onChange={(e)=>{
                                                     setRegister({...inputRegister,username:e.target.value})
-                                                }}></input>
+                                                }} ></input>
 
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col">Password :</div>
                                     <div className="col-6">
-                                        <input type="password" placeholder='รหัสผ่าน' className="form-control" 
+                                        <input type="password"  placeholder='รหัสผ่าน' className="form-control" 
                                             value = {inputRegister.password}
                                             onChange={(e)=>{
                                                 setRegister({...inputRegister,password:e.target.value})
@@ -114,7 +269,7 @@ const register = () =>{
                                 <div className="row">
                                     <div className="col">Re-password : </div>
                                     <div className="col-6">
-                                        <input type="password" placeholder='รหัสผ่านอีกครั้ง' className="form-control"
+                                        <input type="password"  placeholder='รหัสผ่านอีกครั้ง' className="form-control"
                                             value = {inputRegister.repassword}
                                             onChange={(e)=>{
                                                 setRegister({...inputRegister,repassword:e.target.value})
@@ -127,7 +282,7 @@ const register = () =>{
                                 <div className="row">
                                     <div className="col">Firstname : </div>
                                     <div className="col-6">
-                                        <input type="text" placeholder='ชื่อ' className="form-control"
+                                        <input type="text"  placeholder='ชื่อ' className="form-control"
                                             value = {inputRegister.firstname}
                                             onChange={(e)=>{
                                                 setRegister({...inputRegister,firstname:e.target.value})
@@ -138,7 +293,7 @@ const register = () =>{
                                 <div className="row">
                                     <div className="col">Surname : </div>
                                     <div className="col-6">
-                                        <input type="text" placeholder='นามสกุล' className="form-control"
+                                        <input type="text"  placeholder='นามสกุล' className="form-control"
                                             value = {inputRegister.lastname}
                                             onChange={(e)=>{
                                                 setRegister({...inputRegister,lastname:e.target.value})
@@ -150,7 +305,7 @@ const register = () =>{
                                 <div className="row">
                                     <div className="col">Email</div>
                                     <div className="col-6">
-                                        <input type="email" placeholder='อีเมล์' className="form-control"
+                                        <input type="email"  placeholder='อีเมล' className="form-control"
                                             value = {inputRegister.email}
                                             onChange={(e)=>{
                                                 setRegister({...inputRegister,email:e.target.value})
@@ -162,7 +317,7 @@ const register = () =>{
                                 <div className="row">
                                     <div className="col">PhoneNumber</div>
                                     <div className="col-6">
-                                        <input type="text" placeholder='เบอร์โทรศัพท์' className="form-control" size="10" maxLength="10"
+                                        <input type="text"  placeholder='เบอร์โทรศัพท์' className="form-control" size="10" maxLength="10" pattern="[0-9]*"
                                             value = {inputRegister.phone_number}
                                             onChange={(e)=>{
                                                 setRegister({...inputRegister,phone_number:e.target.value})
@@ -174,7 +329,7 @@ const register = () =>{
                                 <div className="row">
                                     <div className="col">Age : </div>
                                     <div className="col-6">
-                                        <input type="number" placeholder='อายุ' className="form-control" size="3" maxLength="3"
+                                        <input type="number"  placeholder='อายุ' className="form-control" size="3" maxLength="3"
                                             value = {inputRegister.age}
                                             onChange={(e)=>{
                                                 setRegister({...inputRegister,age:e.target.value})
@@ -183,21 +338,26 @@ const register = () =>{
                                     </div>
                                 </div>
                             </div>
-                            <div className="term">
+                            {/* <div className="term">
                                 <text>กด <u><a onClick={handleShow}>ข้อเสนอ</a></u> เพื่ออ่านเงื่อนไข</text>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                <input class="form-check-input" required  type="checkbox"  value="" id="flexCheckDefault"/>
                                     <span class="form-check-label" for="flexCheckDefault">
                                             ยอมรับข้อเสนอ
                                     </span>
-                            </div>
+                            </div> */}
+                            <div className="messages">
+                            {errorMessage()}
+                            {successMessage()}
+                         </div>
+                         <br></br>
                             <div className='div-button'>
-                                <button type="submit" class="btn btn-warning" size="lg" onClick={()=>{register();}}>Register</button>
+                                <button type="submit" class="btn btn-warning" size="lg" onClick={register} >Register</button>
                             </div>
-                        {/* </form> */}
+                            </form>
                     </div>
-                    
+                   
 
                     {/* <Button className="nextButton" onClick={handleShow}>
                         Open Modal

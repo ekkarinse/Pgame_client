@@ -40,11 +40,19 @@ const Header = ({history,isLogged}) =>{
       console.log(response.data.status);
       if(response.data.status === 'Ok'){
         Swal.fire({
-          position: 'center',
-          icon: 'success',
           title: 'Login successfully',
+          icon: 'success',
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
+          width: 600,
+          padding: '3em',
+          color: '#716add',
+          backdrop: `
+            rgba(0,0,123,0.4)
+            url("https://sweetalert2.github.io/images/nyan-cat.gif")
+            left top
+            no-repeat
+          `
         }).then((value)=>{
           localStorage.setItem('token', response.data.token);
           if(response.data.token){
@@ -56,11 +64,19 @@ const Header = ({history,isLogged}) =>{
 
       }else{
         Swal.fire({
-          position: 'center',
-          icon: 'error',
           title: 'Login failed',
+          icon: 'error',
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
+          width: 600,
+          padding: '3em',
+          color: '#716add',
+          backdrop: `
+            rgba(0,0,123,0.4)
+            url("https://sweetalert2.github.io/images/nyan-cat.gif")
+            left top
+            no-repeat
+          `
         })
       }
     }).catch(function(error){
